@@ -12,6 +12,7 @@ You can use all technologies, languages and frameworks you want. The only condit
 
 ## Additional informations for students
 You can realize backend only, in that case please provide us a documented API so that we can test your routes easily.
+
 You can realize frontend only, with fake data. 
 
 Don't forget that Infomaniak provides free web hosting for students if you need it.
