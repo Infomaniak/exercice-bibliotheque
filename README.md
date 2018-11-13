@@ -2,26 +2,29 @@
 
 ![Infomaniak Library](bookcase.jpg)
 
-## Subject
-Create a library : A web site or application for managing and borrow books.
- * A user can subscribe to the website, see the available books and borrow books.
- * A librarian can add / edit / delete / see all the books. When a book has been borrowed, he will need to know which user has the book.
+## Choix de développement
+- Framework:
+	- Laravel 5.7 : Laravel est un framework PHP utilisant l'architecture MVC, il me permet ici de gérer facilement les modèles "Book" et "User" grâce à son ORM Eloquent qui permet de mettre en relation les objets dans le code avec la base de données directement.
 
-## Technologies
-You can use all technologies, languages and frameworks you want. The only condition is that your application is accessible online or on a mobile device.
+- Frontend:
+	- Bootstrap
 
-## Additional informations for students
-You can realize backend only, in that case please provide us a documented API so that we can test your routes easily.
+- Backend:
+	- PHP 7
 
-You can realize frontend only, with fake data. 
+- Base de données:
+	- MySQL 5.7
 
-Don't forget that Infomaniak provides free web hosting for students if you need it.
+## Installer le projet
+- Récupérer le projet depuis GitHub puis lancer la commande "composer install"
 
-## Assessment
-We will :
- * test your application : your application must work, even if it is incomplete
- * read your code : create a pull request on this project
- * read your development thinking : please add a short info.md file to your project, which summarize your development choices. You can write this document in french or english.
+## Pour accéder au site en ligne
+- http://alexandrepiot.alwaysdata.net/
 
-### Do you have question ?
-Please create an `issue` on this project.
+- Possibilité de se connecter en compte admin:
+	- Login: admin@admin.com
+	- Password: admin123
+
+- Possibilité de se connecter avec un compte user:
+	- Login: user@user.com
+	- Password: user123
