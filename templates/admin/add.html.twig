@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter livre {{ parent() }}{% endblock %}
+
+{% block body %}
+
+    <h1>Ajout d'un nouveau livre</h1>
+
+    <div class="container">
+        {{ form_start(form) }}
+
+        {{ form_row(form.title, {
+            'label': 'Titre',
+            'name': 'title',
+            'label_attr': {'class': 'font-weight-bold'},
+            'attr': {'class': 'form-control'}}) }}
+        <br/>
+
+        {{ form_row(form.author, {
+            'label': 'Auteur',
+            'name': 'author',
+            'label_attr': {'class': 'font-weight-bold'},
+            'attr': {'class': 'form-control'}}) }}
+        <br/>
+
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}

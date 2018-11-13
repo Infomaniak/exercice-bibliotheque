@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Livres {{ parent() }}{% endblock %}
+
+{% block body %}
+	<h1>Livres</h1>
+
+	<div class="container">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Titre</th>
+					<th>Auteur</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for book in books %}
+					<tr>
+						<td>{{ book.title }}</td>
+						<td>{{ book.author }}</td>
+						{% if book.user %}
+							<td><a href="#" class="btn btn-secondary disabled">Déjà emprunté par {{ book.user.username }}</a></td>
+						{% else %}
+							<td><a href="{{ path('borrow_book', {'id': book.id}) }}" class="btn btn-success">Emprunter</a></td>
+						{% endif %}
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	
+{% endblock %}

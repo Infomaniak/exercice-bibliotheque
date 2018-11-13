@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Index{{ parent() }}{% endblock %}
+
+{% block body %}
+	<br>
+	<div class="jumbotron">
+		<h1 class="isplay-2">Bienvenue !</h1>
+		<p class="lead">Ce site web est une application de gestion d'une librairie fictive.</p>
+		<hr class="my-4">
+		<p>Réalisé par <strong>Joffrey Duc</strong> dans le cadre d'un exercice proposé par Infomaniak. <a href="https://github.com/Infomaniak/exercice-bibliotheque"> Lien du sujet</a></p>
+		<p class="lead">
+		<a class="btn btn-primary btn-lg" href="{{ path('book') }}" role="button">Commencer</a>
+		</p>
+	</div>
+{% endblock %}
