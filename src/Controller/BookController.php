@@ -20,7 +20,8 @@ class BookController extends AbstractController
 
         return $this->render('book/index.html.twig', [
             'controller_name' => 'BookController',
-            'books' => $books
+            'books' => $books,
+            'user' => $this->getUser()
         ]);
     }
 
@@ -33,6 +34,25 @@ class BookController extends AbstractController
             // Pour récupérer l'utilisateur connecté
             $user = $this->getUser();
             $user->addBook($book);
+
+            $manager = $this->getDoctrine()->getManager();
+            $manager->persist($user);
+            $manager->flush();
+        }
+
+        return $this->redirectToRoute('book');
+    }
+
+    /**
+     * @Route("/book/unborrow/{id}", name="unborrow_book")
+     */
+    public function unborrow(Book $book)
+    {
+        // Pour récupérer l'utilisateur connecté
+        $user = $this->getUser();
+
+        if($book->getUser() && $book->getUser() == $user){
+            $user->removeBook($book);
 
             $manager = $this->getDoctrine()->getManager();
             $manager->persist($user);

@@ -19,7 +19,9 @@
 					<tr>
 						<td>{{ book.title }}</td>
 						<td>{{ book.author }}</td>
-						{% if book.user %}
+						{% if book.user == user %}
+							<td><a href="{{ path('unborrow_book', {'id': book.id}) }}" class="btn btn-danger">Rendre le livre</a></td>
+						{% elseif book.user %}
 							<td><a href="#" class="btn btn-secondary disabled">Déjà emprunté par {{ book.user.username }}</a></td>
 						{% else %}
 							<td><a href="{{ path('borrow_book', {'id': book.id}) }}" class="btn btn-success">Emprunter</a></td>
