@@ -10,6 +10,7 @@ Pour accéder à l'interface utilisateur, il suffit de s'enregistrer directement
 En tant qu'utilisateur, on peut :
 * Voir tous les livres
 * Emprunter un livre
+* Rendre un livre
 
 En tant qu'administrateur, on peut en plus :
 * Ajouter un livre
