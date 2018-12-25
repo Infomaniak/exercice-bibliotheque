@@ -1,0 +1,368 @@
+<!doctype html >
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Laravel Schema Designer</title>
+    <meta name="author" content="Thomas Roelens" />
+    <meta name="description" content="Laravel Schema Designer, design your database online and export it as a schema for laravel">
+    <meta name="keywords" content="Laravel, Schema, Laravel 4, Database, Eloquent, Designer, Visualizer">
+
+    
+
+    <link media="all" type="text/css" rel="stylesheet" href="http://www.laravelsd.com/css/bootstrap.min.css">
+    <link media="all" type="text/css" rel="stylesheet" href="http://www.laravelsd.com/css/bootstrap-responsive.min.css">
+    <link media="all" type="text/css" rel="stylesheet" href="http://www.laravelsd.com/css/home.css">
+
+    <link rel="shortcut icon" href="favicon.ico" />
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28782087-8', 'laravelsd.com');
+      ga('send', 'pageview');
+
+    </script>
+
+</head>
+<body>
+<div id="fb-root"></div>
+
+<div class="wrapper">
+<div class="top">
+  <div class="container">
+    <div class="logo"> 
+    <!--<a href="http://www.laravelsd.com"><img style="float:left" src="/img/logo.png" alt="Laravel Schema Designer" /></a>-->
+      <div style="float:right; margin-top: 17px;">
+      <span class="name">Laravel Schema Designer</span><br /><span class="baseline">create, export and share your laravel schemas</span>
+      </div>
+    </div>
+
+    <div class="share-top" style="width: 330px;">
+          <p>
+          <div style='float:left;'>
+              <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+              <input type="hidden" name="cmd" value="_s-xclick">
+              <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+              ">
+              <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+              <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+              </form>
+          </div>
+        
+          <div style='float:left;'>
+            <div class="g-plusone" data-size="medium" data-href="http://www.laravelsd.com"></div>
+        </div>
+        <div style='float:left; margin-right: 10px;'>
+          <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.laravelsd.com" data-via="Okyn01" data-lang="en">Tweet</a>
+      </div>
+      <div style='float:left;'>
+          <div class="fb-like" data-href="http://www.laravelsd.com" data-width="143" data-layout="button_count" data-show-faces="true" data-send="false"></div>
+      </div>
+        </p>
+    </div>
+  
+    <div class="login-top">
+      <p>
+       <a href="http://www.laravelsd.com">HOME</a> - <a href="http://www.laravelsd.com/browse">BROWSE</a> - <a href="http://www.laravelsd.com/user/login">LOGIN</a> - <a href="http://www.laravelsd.com/user/register">REGISTER</a>       </p>
+    </div>
+    <div style='clear:both;'></div>
+  </div>
+
+</div>
+
+<div class="container frontpage">
+
+<div class="row-fluid">
+  <div class="span8" style="text-align: center;">
+    <p>
+    <b>Enter a name for the database you want to create to start:</b><br>
+    <form method="POST" action="http://www.laravelsd.com/" accept-charset="UTF-8"><input name="_token" type="hidden" value="8A7Q1UthAvjZNUBYFyQnsGuqtDLFOBrz1ZaAqyjC">    <div class="input-append">
+    <input placeholder="Enter database name" class="input-large" name="dbname" type="text">    <input class="btn btn-extra" type="submit" value="Create">    </div>
+    </form>  </p>
+      </div>
+
+
+
+  <div class="span4" style="text-align: center;">
+    <p>
+    <br>
+    <form method="POST" action="http://www.laravelsd.com/search" accept-charset="UTF-8"><input name="_token" type="hidden" value="8A7Q1UthAvjZNUBYFyQnsGuqtDLFOBrz1ZaAqyjC">    <div class="input-append">
+    <input placeholder="Search schemas" class="input-large-search" name="search" type="text">    <input class="btn btn-extra" type="submit" value="Search">    </div>
+    </form>  </p>
+    </div>
+</div>
+
+    <div class="row-fluid" style="padding-bottom:60px;">
+      <div class="span8">
+        <center>
+          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          <ins class="adsbygoogle"
+               style="display:inline-block;width:728px;height:90px"
+               data-ad-client="ca-pub-8010651412009284"
+               data-ad-slot="2148240657"></ins>
+          <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </center>
+        <br />
+        
+        
+<div class="news-title"><h1>Log In</h1></div>
+<div class="content-container">
+<p>
+<form method="POST" action="http://www.laravelsd.com/user/login" accept-charset="UTF-8" class="form-horizontal"><input name="_token" type="hidden" value="8A7Q1UthAvjZNUBYFyQnsGuqtDLFOBrz1ZaAqyjC"><div class="control-group">
+    <label class="control-label" for="username">Username or email</label>
+    <div class="controls">
+        <input name="username" type="text">    </div>
+</div>
+<div class="control-group">
+    <label class="control-label" for="password">Password</label>
+    <div class="controls">
+        <input name="password" type="password" value="">    </div>
+</div>
+<div class="control-group">
+    <div class="controls">
+      <label class="checkbox"><input name="remember" type="checkbox" value="remember"> Stay logged in</label>
+       </div>
+       <br />
+       <div class="controls">
+        <button type="submit" class="btn btn-success">Log In</button>
+        <a href="http://www.laravelsd.com/user/forgotpassword" class="btn btn-">Recover password</a>
+   </div>
+</div>  
+</form>                            
+
+
+<p>
+If you do not have an account, please register <a href="http://www.laravelsd.com/user/register">here</a></p>
+</p>           
+</div>
+
+
+      </div>
+      <div class="span4">
+        
+                
+          <div class="tab-container">
+              <ul class="tabs-share">
+                <li class="tab-link current" data-tab="tab-3"><strong>POPULAR</strong></li>
+                <li class="tab-link" data-tab="tab-4"><strong>LATEST</strong></li>
+              </ul>
+              <div id="tab-3" class="tab-content-share current">
+                                <div class="tab-content-row">
+                    <a href="http://www.laravelsd.com/share/2nM4tV" class="tab-content-row-title"><strong>users</strong></a>
+                    <div class="tab-content-row-info">created by sajjad_ser on 21 November 2013</div>
+                  </div>
+                                <div class="tab-content-row">
+                    <a href="http://www.laravelsd.com/share/s4UjqE" class="tab-content-row-title"><strong>Blog</strong></a>
+                    <div class="tab-content-row-info">created by angelside on 11 December 2013</div>
+                  </div>
+                                <div class="tab-content-row">
+                    <a href="http://www.laravelsd.com/share/V3JXF4" class="tab-content-row-title"><strong>it-helpdesk</strong></a>
+                    <div class="tab-content-row-info">created by babeman123 on 19 February 2014</div>
+                  </div>
+                                <div class="tab-content-row">
+                    <a href="http://www.laravelsd.com/share/8WFxKl" class="tab-content-row-title"><strong>Sentry User Extend Social</strong></a>
+                    <div class="tab-content-row-info">created by memfis61 on 08 April 2014</div>
+                  </div>
+                                <div class="tab-content-row">
+                    <a href="http://www.laravelsd.com/share/fIsgXd" class="tab-content-row-title"><strong>users</strong></a>
+                    <div class="tab-content-row-info">created by raleigh on 04 January 2014</div>
+                  </div>
+                                <div class="tab-content-row">
+                    <a href="http://www.laravelsd.com/share/K5oG9a" class="tab-content-row-title"><strong>ecommerce</strong></a>
+                    <div class="tab-content-row-info">created by Sleavely on 29 December 2014</div>
+                  </div>
+                                <div class="tab-content-row">
+                    <a href="http://www.laravelsd.com/share/tkO3JL" class="tab-content-row-title"><strong>users</strong></a>
+                    <div class="tab-content-row-info">created by ashish641 on 29 June 2014</div>
+                  </div>
+                                <div class="tab-content-row">
+                    <a href="http://www.laravelsd.com/share/iA9fOD" class="tab-content-row-title"><strong>Online Lecture Site</strong></a>
+                    <div class="tab-content-row-info">created by dooee on 24 September 2013</div>
+                  </div>
+                                <div class="tab-content-row">
+                    <a href="http://www.laravelsd.com/share/tY7hQw" class="tab-content-row-title"><strong>lwhiker</strong></a>
+                    <div class="tab-content-row-info">created by Implicated on 31 December 2013</div>
+                  </div>
+                                <div class="tab-content-row">
+                    <a href="http://www.laravelsd.com/share/59njfn" class="tab-content-row-title"><strong>Meeting Record</strong></a>
+                    <div class="tab-content-row-info">created by jjmc on 17 December 2013</div>
+                  </div>
+                            </div>
+
+              <div id="tab-4" class="tab-content-share">
+                                <div class="tab-content-row">
+                    <a href="http://www.laravelsd.com/share/NPKM15" class="tab-content-row-title"><strong>7ason</strong></a>
+                    <div class="tab-content-row-info">created by fatmaabdelrahman72 on 27 November 2018</div>
+                  </div>
+                                <div class="tab-content-row">
+                    <a href="http://www.laravelsd.com/share/jbb6IK" class="tab-content-row-title"><strong>carkifelet</strong></a>
+                    <div class="tab-content-row-info">created by besimvatan on 27 November 2018</div>
+                  </div>
+                                <div class="tab-content-row">
+                    <a href="http://www.laravelsd.com/share/fWTslj" class="tab-content-row-title"><strong>sekolahku</strong></a>
+                    <div class="tab-content-row-info">created by ndank on 26 November 2018</div>
+                  </div>
+                                <div class="tab-content-row">
+                    <a href="http://www.laravelsd.com/share/H0Nz2l" class="tab-content-row-title"><strong>cloudbiz-roster</strong></a>
+                    <div class="tab-content-row-info">created by Guillermo2013 on 19 November 2018</div>
+                  </div>
+                                <div class="tab-content-row">
+                    <a href="http://www.laravelsd.com/share/l5XDpb" class="tab-content-row-title"><strong>PHLog</strong></a>
+                    <div class="tab-content-row-info">created by okandel on 21 November 2018</div>
+                  </div>
+                                <div class="tab-content-row">
+                    <a href="http://www.laravelsd.com/share/gnwLC9" class="tab-content-row-title"><strong>marketplace</strong></a>
+                    <div class="tab-content-row-info">created by bjulliana on 16 November 2018</div>
+                  </div>
+                                <div class="tab-content-row">
+                    <a href="http://www.laravelsd.com/share/ggcYcs" class="tab-content-row-title"><strong>i_smart</strong></a>
+                    <div class="tab-content-row-info">created by elnazer shora on 19 November 2018</div>
+                  </div>
+                                <div class="tab-content-row">
+                    <a href="http://www.laravelsd.com/share/OS3Z21" class="tab-content-row-title"><strong>reborn_production</strong></a>
+                    <div class="tab-content-row-info">created by abidnurulhakim on 18 November 2018</div>
+                  </div>
+                                <div class="tab-content-row">
+                    <a href="http://www.laravelsd.com/share/c05NXu" class="tab-content-row-title"><strong>HexCrawl</strong></a>
+                    <div class="tab-content-row-info">created by moorkook on 18 November 2018</div>
+                  </div>
+                                <div class="tab-content-row">
+                    <a href="http://www.laravelsd.com/share/P6L63d" class="tab-content-row-title"><strong>laraerp</strong></a>
+                    <div class="tab-content-row-info">created by leandrosanjuan on 29 October 2018</div>
+                  </div>
+                            </div>
+          </div>
+
+          <div class="tab-container">
+            <div class="sidebar-title"><strong>SUPPORT</strong></div>
+            <div class="sidebar-content">
+              <p>If you wish to support Laravel Schema Designer and it's further development. Thanks!</p>
+              <center>
+              <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+              <input type="hidden" name="cmd" value="_s-xclick">
+              <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+              ">
+              <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+              <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+              </form>
+              </center>
+            </div>
+          </div> 
+
+          <div class="tab-container">
+            <div class="sidebar-title"><strong>WEBSITE STATS</strong></div>
+            <table class="stats-table">
+              <tr>
+                <!-- <td>Users:</td><td style="width: 100px;">22347</td>-->
+                <td>Databases:</td><td>36878</td>
+              </tr>
+            </table>
+          </div> 
+
+
+
+
+
+          <div class="tab-container">
+            <div class="sidebar-title"><strong>CONTACT</strong></div>
+            <div class="sidebar-content">
+              <p>
+              Contact me at <a href="/cdn-cgi/l/email-protection#d7bbb6a5b6a1b2bba4b397b0bab6bebbf9b4b8ba"><span class="__cf_email__" data-cfemail="d6bab7a4b7a0b3baa5b296b1bbb7bfbaf8b5b9bb">[email&#160;protected]</span></a>
+            </p>
+            </div>
+            </table>
+          </div> 
+
+
+
+          <center>
+            <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- Sidebar -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:336px;height:280px"
+                 data-ad-client="ca-pub-8010651412009284"
+                 data-ad-slot="8194774254"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </center>
+
+      </div>
+    </div>
+  </div>
+
+
+</div>
+<div class="footer">
+  Made with Laravel for Laravel - &copy; 2018  <a href="https://www.twitter.com/okyn01">@okyn01</a> - <a href="http://www.rtstudios.be" target="_blank">rtstudios.be</a>
+</div>
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+// Facebook
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_EN/all.js#xfbml=1&appId=139864406063920";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+// Google+
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+
+// Twitter
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^https:/.test(d.location)?'https':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $('ul.tabs-user li').click(function(){
+    var tab_id = $(this).attr('data-tab');
+
+    $('ul.tabs-user li').removeClass('current');
+    $('.tab-content-user').removeClass('current');
+
+    $(this).addClass('current');
+    $("#"+tab_id).addClass('current');
+  });
+
+  $('ul.tabs-share li').click(function(){
+    var tab_id = $(this).attr('data-tab');
+
+    $('ul.tabs-share li').removeClass('current');
+    $('.tab-content-share').removeClass('current');
+
+    $(this).addClass('current');
+    $("#"+tab_id).addClass('current');
+  });
+
+
+$('.delete-favorite').click(function(){
+if(confirm('Are you sure you want to delete this?')) {
+var id = $(this).attr('id');
+console.log(id);
+  $.post("http://www.laravelsd.com/favorite/deletefavorite",
+  {
+    id: id
+  });
+  $(this).parent().parent().remove();
+  }
+ });
+
+});
+</script>
+
+</body>
+</html>

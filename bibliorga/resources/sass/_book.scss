@@ -1,0 +1,66 @@
+//Book
+.bookDetails {
+    display: block;
+    background: white;
+    max-width: 900px;
+    margin: 130px auto 50px auto;
+    -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.bookPhoto {
+    display: inline-block;
+    vertical-align: top;
+    width: 300px;
+    margin: -100px 0 30px 30px;
+}
+
+.details {
+    display: inline-block;
+    max-width: 550px;
+    padding: 20px;
+}
+
+.details span {
+    display: block;
+    font-size: 130%;
+    i {
+        font-style: normal;
+        opacity: 0.7;
+    }
+    span b {
+        font-size: 140%;
+    }
+}
+
+span.desc {
+    font-size: 100%;
+    padding: 5px;
+    opacity: 0.8;
+}
+
+.headFeedback {
+    display: block;
+    padding: 10px;
+    background: #24c88c;
+    color: white;
+    font-size: 120%;
+}
+
+.note {
+    display: block;
+    font-size: 120%;
+    font-weight: bold;
+    i {
+        font-style: normal;
+        padding: 0 5px 0 0;
+        font-size: 90%;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .bookPhoto {
+        width: 150px;
+        margin: -100px 0 0 30px;
+    }
+}

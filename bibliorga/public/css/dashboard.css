@@ -1,0 +1,31 @@
+footer {
+  background: #e8e8e8;
+  padding: 20px;
+}
+
+footer .footlogo {
+  display: inline-block;
+  height: 22px;
+  vertical-align: middle;
+  padding: 0 0 4px 0;
+  opacity: 0.7;
+}
+
+footer p {
+  padding: 0;
+  text-align: center;
+  font-size: 90%;
+  opacity: 0.5;
+  font-weight: normal;
+}
+
+.userProfilePhoto {
+  display: block;
+  margin: auto;
+  width: 150px;
+  border: 5px solid white;
+  -webkit-box-shadow: 0 5px 25px -5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 25px -5px rgba(0, 0, 0, 0.2);
+  border-radius: 1000px;
+}
+
