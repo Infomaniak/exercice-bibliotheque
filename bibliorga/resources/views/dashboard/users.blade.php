@@ -51,9 +51,9 @@
                                 <td>{{$user->created_at}}</td>
                                 <td>{{$user->role}}</td>
                                 <td>
-                                    {!! auth()->user()->hasVerifiedEmail()
+                                    {!! $user->hasVerifiedEmail()
                                     ? __('<span class="label label-success">vérifié</span>')
-                                    : __('<span class="label label-success">Success</span>') !!}
+                                    : __('<span class="label label-danger">non vérifié</span>') !!}
                                 </td>
                                 <td>
                                     <a href="#" class="btn-sm btn-primary">

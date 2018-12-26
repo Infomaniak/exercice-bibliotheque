@@ -43,6 +43,9 @@
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Enregistrer</button>
+        @if (!Auth::user()->hasVerifiedEmail())
+        <a href="{{route('verification.resend')}}" class="btn btn-primary">recevoir un nouveau email</a>
+        @endif
         {!! Form::close() !!}
     </section>
 @stop
