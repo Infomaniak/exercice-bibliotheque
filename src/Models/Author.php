@@ -43,6 +43,14 @@ class Author extends Model_IdName
         }
     }
 
+    public function addBooks($books){
+        if($books != null) {
+            foreach ($books as $book) {
+                $this->addBook($book);
+            }
+        }
+    }
+
     public function removeBook(Book $book)
     {
         if($this->books->contains($book)) {

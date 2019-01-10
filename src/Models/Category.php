@@ -35,6 +35,14 @@ class Category extends Model_IdName
         }
     }
 
+    public function addBooks($books){
+        if($books != null) {
+            foreach ($books as $book) {
+                $this->addBook($book);
+            }
+        }
+    }
+
     public function __toString()
     {
         $format = "Category (id: %s, name: %s)\n";

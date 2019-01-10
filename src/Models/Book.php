@@ -20,7 +20,7 @@ class Book
     protected $id;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", unique=true)
      */
     protected $title;
 

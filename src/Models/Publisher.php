@@ -41,4 +41,12 @@ class Publisher extends Model_IdName
         return sprintf($format, $this->id, $this->name);
     }
 
+    public function addBooks($books){
+        if($books != null) {
+            foreach ($books as $book) {
+                $this->addBook($book);
+            }
+        }
+    }
+
 }

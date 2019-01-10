@@ -22,10 +22,10 @@ function create_user($firstName, $lastName, $mail, $password){
         try {
             $entityManager->persist($user);
             $entityManager->flush();
-            dialogBox_and_redirect("Account created !");
+            dialogBox_and_redirect("Account created !",'../Views/my_account.php');
             return $user;
-        } catch (\Doctrine\ORM\ORMException $e) {
-            dialogBox_and_redirect("Error accessing database. \n $e", '../Views/index.php');
+        } catch (ORMException $e) {
+            dialogBox_and_redirect("Error accessing database. \n $e");
             return null;
         }
     }
