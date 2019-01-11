@@ -1,11 +1,8 @@
 <?php
 namespace Library\Controllers;
 
-use Doctrine\ORM\ORMException;
 use Library\Models\Author;
-require_once "utils.php";
-
-$entityManager = require '../../bootstrap.php';
+require_once "utils.php"; //entitymanager used in utils
 
 function create_author($name, $books = null){
     global $entityManager;
@@ -15,17 +12,7 @@ function create_author($name, $books = null){
         $author = new Author();
         $author->setName($name);
         $author->addBooks($books);
-        try {
-            $entityManager->persist($author);
-            $entityManager->flush();
-            dialogBox_and_redirect("Author created !");
-            header("Refresh:0");
-            return $author;
-        } catch (ORMException $e) {
-            dialogBox_and_redirect("Error accessing database. \n $e");
-            header("Refresh:0");
-            return null;
-        }
+        return $author;
     }
     else{
         dialogBox_and_redirect('Error, name already taken, author not created.');

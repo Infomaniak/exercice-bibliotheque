@@ -8,13 +8,17 @@ I've chosen to develop my website using [Doctrine](https://www.doctrine-project.
 As I'm learning Doctrine by doing this project, I've created some code snippets to figure out how to use it. It includes several files interacting with the entities I've created.
 
 ### The src folder
-This is the principal one. It includes my MVC structure. Entities are in ```Models\```, human-machine interfaces are in ```Views\``` and all the code in-between is in ```Controllers\```.
+This is the principal one. It includes my MVC structure. Entities are in ```Models/```, human-machine interfaces are in ```Views\``` and all the code in-between is in ```Controllers\```.
 
 ### The vendor folder
 This folder contains Doctrine library.
 
+### The db_filling_scripts
+This folder contains scripts to test our database with fake data, to run them use ```filler.php```. This script orchestrates all the scripts to make consistant objects and save them to the database.
+
 ### The documentation folder
 This last folder contains this ```info.md``` + every pictures associated.
+
 
 ### composer.json, bootstrap.php and cli-config.php files
 These are configuration files for Composer and Doctrine's ORM and DBAL. See details in the installation part.
@@ -77,3 +81,5 @@ Installation is done ! Now you can run these Doctrine commands :
 ```vendor/bin/doctrine orm:schema-tool:drop --force``` to delete your tables
 
 ```vendor/bin/doctrine orm:schema-tool:update --dump-sql --force``` to update your tables
+
+When the database is set up, you can use the scripts I've written in ```db_filling_scripts/``` to fill it with fake data.

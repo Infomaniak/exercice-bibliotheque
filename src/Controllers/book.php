@@ -1,11 +1,8 @@
 <?php
 namespace Library\Controllers;
 
-use Doctrine\ORM\ORMException;
 use Library\Models\Book;
-require_once "utils.php";
-
-$entityManager = require '../../bootstrap.php';
+require_once "utils.php"; //entitymanager used in utils
 
 function create_book($category, $publisher, $title, $release_date, $pdf){
     global $entityManager;
@@ -18,17 +15,7 @@ function create_book($category, $publisher, $title, $release_date, $pdf){
         $book->setTitle($title);
         $book->setReleaseDate($release_date);
         $book->setPdf($pdf);
-        try {
-            $entityManager->persist($book);
-            $entityManager->flush();
-            dialogBox_and_redirect("Book created !");
-            header("Refresh:0");
-            return $book;
-        } catch (ORMException $e) {
-            dialogBox_and_redirect("Error accessing database. \n $e");
-            header("Refresh:0");
-            return null;
-        }
+        return $book;
     }
     else{
         dialogBox_and_redirect('Error, title already taken, book not created.');

@@ -3,10 +3,7 @@ namespace Library\Controllers;
 
 use Doctrine\ORM\ORMException;
 use Library\Models\User;
-require_once "utils.php";
-
-$entityManager = require '../../bootstrap.php';
-
+require_once "utils.php"; //entitymanager used in utils
 
 function create_user($firstName, $lastName, $mail, $password){
     global $entityManager;
@@ -19,15 +16,7 @@ function create_user($firstName, $lastName, $mail, $password){
         $user->setMail($mail);
         $user->setPassword($password);
         $user->setRole("user");
-        try {
-            $entityManager->persist($user);
-            $entityManager->flush();
-            dialogBox_and_redirect("Account created !",'../Views/my_account.php');
-            return $user;
-        } catch (ORMException $e) {
-            dialogBox_and_redirect("Error accessing database. \n $e");
-            return null;
-        }
+        return $user;
     }
     else{
         dialogBox_and_redirect('Error, mail already taken, account not created.', '../Views/index.php');
