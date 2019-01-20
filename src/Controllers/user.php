@@ -3,7 +3,7 @@ namespace Library\Controllers;
 
 use Doctrine\ORM\ORMException;
 use Library\Models\User;
-require_once "utils.php"; //entitymanager used in utils
+require_once __DIR__.'/utils.php'; //entitymanager used in utils
 
 function create_user($firstName, $lastName, $mail, $password){
     global $entityManager;

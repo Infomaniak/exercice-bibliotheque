@@ -3,10 +3,10 @@ namespace Library\Controllers;
 session_start();
 
 use Library\Models\User;
-require_once "utils.php";
-require_once "user.php";
+require_once __DIR__.'/utils.php';
+require_once __DIR__.'/user.php';
 
-$entityManager = require '../../bootstrap.php';
+$entityManager = require __DIR__.'/../../bootstrap.php';
 if(isset($_POST['submit'])){
     if($_POST['submit'] == "register"){
         $user = create_account();

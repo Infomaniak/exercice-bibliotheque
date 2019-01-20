@@ -1,5 +1,5 @@
 <?php
-require 'header.php';
+require __DIR__.'/header.php';
 print_r($_SESSION);
 ?>
 

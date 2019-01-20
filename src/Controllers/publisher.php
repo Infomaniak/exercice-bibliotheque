@@ -2,7 +2,7 @@
 namespace Library\Controllers;
 
 use Library\Models\Publisher;
-require_once "utils.php"; //entitymanager used in utils
+require_once __DIR__.'/utils.php'; //entitymanager used in utils
 
 function create_publisher($name, $books = null){
     global $entityManager;

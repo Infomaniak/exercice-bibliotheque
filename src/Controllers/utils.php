@@ -3,7 +3,7 @@ namespace Library\Controllers;
 
 use Doctrine\ORM\ORMException;
 
-$entityManager = require '../../bootstrap.php';
+$entityManager = require __DIR__.'/../../bootstrap.php';
 
 function store_entity($entity){
     global $entityManager;
