@@ -15,8 +15,8 @@ function create_category($name, $books = null){
         return $category;
     }
     else{
-        dialogBox_and_redirect('Error, name already taken, category not created.');
-        header("Refresh:0");
-        return null;
+        //dialogBox_and_redirect('Error, name already taken, category not created.');
+        //header("Refresh:0");
+        return $category;
     }
 }

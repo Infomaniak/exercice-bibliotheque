@@ -35,18 +35,18 @@ class Publisher extends Model_IdName
         }
     }
 
-    public function __toString()
-    {
-        $format = "Publisher (id: %s, name: %s)\n";
-        return sprintf($format, $this->id, $this->name);
-    }
-
     public function addBooks($books){
         if($books != null) {
             foreach ($books as $book) {
                 $this->addBook($book);
             }
         }
+    }
+
+    public function __toString()
+    {
+        $format = "Publisher (id: %s, name: %s)\n";
+        return sprintf($format, $this->id, $this->name);
     }
 
 }

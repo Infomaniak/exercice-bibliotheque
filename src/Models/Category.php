@@ -36,7 +36,7 @@ class Category extends Model_IdName
     }
 
     public function addBooks($books){
-        if($books != null) {
+        if($books != null){
             foreach ($books as $book) {
                 $this->addBook($book);
             }

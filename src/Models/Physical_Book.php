@@ -48,9 +48,10 @@ class Physical_Book
         return $this->book;
     }
 
-    public function setBook($book)
+    public function setBook(Book $book)
     {
         $this->book = $book;
+        $this->setId($book->getId());
     }
 
     public function getHolder()
@@ -68,7 +69,7 @@ class Physical_Book
         return $this->borrow_date;
     }
 
-    public function setBorrowDate($borrow_date)
+    public function setBorrowDate(\DateTime $borrow_date)
     {
         $this->borrow_date = $borrow_date;
     }

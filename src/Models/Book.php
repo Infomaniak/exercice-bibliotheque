@@ -98,7 +98,7 @@ class Book
         return $this->release_date;
     }
 
-    public function setReleaseDate($release_date)
+    public function setReleaseDate(\DateTime $release_date)
     {
         $this->release_date = $release_date;
     }
@@ -132,6 +132,14 @@ class Book
         if(!$this->authors->contains($author)) {
             $this->authors->add($author);
             $author->addBook($this);
+        }
+    }
+
+    public function addAuthors($authors){
+        if($authors != null) {
+            foreach ($authors as $author) {
+                $this->addAuthor($author);
+            }
         }
     }
 

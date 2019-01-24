@@ -7,6 +7,9 @@ require_once __DIR__.'/utils.php';
 
 function create_physical_book($book){
     $physical_book = new Physical_Book();
-    $physical_book->setBook($book);
+    if($book != null) {
+        $physical_book->setBook($book);
+    }
+    //no need to set the id because it's done by setBook
     return $physical_book;
 }

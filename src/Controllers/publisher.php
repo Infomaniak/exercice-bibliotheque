@@ -15,8 +15,8 @@ function create_publisher($name, $books = null){
         return $publisher;
     }
     else{
-        dialogBox_and_redirect('Error, name already taken, publisher not created.');
-        header("Refresh:0");
-        return null;
+        //dialogBox_and_redirect('Error, name already taken, publisher not created.');
+        //header("Refresh:0");
+        return $publisher;
     }
 }

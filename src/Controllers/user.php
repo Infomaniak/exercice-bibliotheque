@@ -19,8 +19,8 @@ function create_user($firstName, $lastName, $mail, $password){
         return $user;
     }
     else{
-        dialogBox_and_redirect('Error, mail already taken, account not created.', '../Views/index.php');
-        return null;
+        //dialogBox_and_redirect('Error, mail already taken, account not created.', '../Views/index.php');
+        return null; // doesn't return found user because it's sensitive
     }
 }
 
@@ -36,7 +36,7 @@ function change_role(User $user, $role)
             return true;
         }
         catch (ORMException $e) {
-            dialogBox_and_redirect("Error changing role, $e.");
+            //dialogBox_and_redirect("Error changing role, $e.");
         }
     }
     return false;

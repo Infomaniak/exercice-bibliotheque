@@ -12,11 +12,10 @@ function create_author($name, $books = null){
         $author = new Author();
         $author->setName($name);
         $author->addBooks($books);
-        return $author;
     }
-    else{
-        dialogBox_and_redirect('Error, name already taken, author not created.');
-        header("Refresh:0");
-        return null;
-    }
+    //else{
+        //dialogBox_and_redirect('Error, name already taken, author not created.');
+        //header("Refresh:0");
+    //}
+    return $author;
 }
