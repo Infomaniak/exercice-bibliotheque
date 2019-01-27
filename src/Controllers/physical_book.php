@@ -2,8 +2,7 @@
 namespace Library\Controllers;
 
 use Library\Models\Physical_Book;
-
-require_once __DIR__.'/utils.php';
+require_once __DIR__ . '/entity.php'; //entitymanager used in entity
 
 function create_physical_book($book){
     $physical_book = new Physical_Book();

@@ -2,7 +2,7 @@
 namespace Library\Controllers;
 
 use Library\Models\Category;
-require_once __DIR__.'/utils.php'; //entitymanager used in utils
+require_once __DIR__ . '/entity.php'; //entitymanager used in entity
 
 function create_category($name, $books = null){
     global $entityManager;
@@ -12,11 +12,6 @@ function create_category($name, $books = null){
         $category = new Category();
         $category->setName($name);
         $category->addBooks($books);
-        return $category;
     }
-    else{
-        //dialogBox_and_redirect('Error, name already taken, category not created.');
-        //header("Refresh:0");
-        return $category;
-    }
+    return $category;
 }

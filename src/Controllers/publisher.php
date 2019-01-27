@@ -2,7 +2,7 @@
 namespace Library\Controllers;
 
 use Library\Models\Publisher;
-require_once __DIR__.'/utils.php'; //entitymanager used in utils
+require_once __DIR__ . '/entity.php'; //entitymanager used in entity
 
 function create_publisher($name, $books = null){
     global $entityManager;
@@ -12,11 +12,6 @@ function create_publisher($name, $books = null){
         $publisher = new Publisher();
         $publisher->setName($name);
         $publisher->addBooks($books);
-        return $publisher;
     }
-    else{
-        //dialogBox_and_redirect('Error, name already taken, publisher not created.');
-        //header("Refresh:0");
-        return $publisher;
-    }
+    return $publisher;
 }

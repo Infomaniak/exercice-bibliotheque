@@ -2,8 +2,9 @@
 namespace Library\Controllers;
 
 use Doctrine\ORM\ORMException;
+require_once __DIR__.'/Exceptions/DatabaseException.php';
 use Library\Models\User;
-require_once __DIR__.'/utils.php'; //entitymanager used in utils
+require_once __DIR__ . '/entity.php'; //entitymanager used in entity
 
 function create_user($firstName, $lastName, $mail, $password){
     global $entityManager;
@@ -19,11 +20,13 @@ function create_user($firstName, $lastName, $mail, $password){
         return $user;
     }
     else{
-        //dialogBox_and_redirect('Error, mail already taken, account not created.', '../Views/index.php');
-        return null; // doesn't return found user because it's sensitive
+        return null; // doesn't return found user for security
     }
 }
 
+/**
+ * @throws DatabaseException when the user's role couldn't be changed
+ */
 function change_role(User $user, $role)
 {
     $role = strtolower($role);
@@ -36,7 +39,7 @@ function change_role(User $user, $role)
             return true;
         }
         catch (ORMException $e) {
-            //dialogBox_and_redirect("Error changing role, $e.");
+            throw new DatabaseException("Couldn't change user's role");
         }
     }
     return false;

@@ -3,14 +3,18 @@ namespace Library\Controllers;
 session_start();
 
 use Library\Models\User;
-require_once __DIR__.'/utils.php';
+require_once __DIR__ . '/entity.php'; //entitymanager used in entity
 require_once __DIR__.'/user.php';
 
-$entityManager = require __DIR__.'/../../bootstrap.php';
 if(isset($_POST['submit'])){
-    if($_POST['submit'] == "register"){
+    if($_POST['submit'] == "register" && check_submitted_data()){
         $user = create_account();
-        init_session($user);
+        if($user != null) {
+            init_session($user);
+        }
+        else{
+            echo "Couldn't create your account, maybe your mail is already taken ? Please try again.";
+        }
     }
     elseif ($_POST['submit'] == "sign_in"){
         init_session();
@@ -20,16 +24,18 @@ if(isset($_POST['submit'])){
     }
 }
 
+function check_submitted_data(){
+    return isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['mail']) && isset($_POST['password']);
+}
+
 function create_account(){
-    if (isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['mail']) && isset($_POST['password'])) {
-        $user = create_user($_POST['firstName'], $_POST['lastName'],$_POST['mail'],$_POST['password']);
+    $user = create_user($_POST['firstName'], $_POST['lastName'],$_POST['mail'],$_POST['password']);
+    try {
         store_entity($user);
-        return $user;
+    } catch (DatabaseException $e) {
+        return null;
     }
-    //else {
-        //dialogBox_and_redirect('Error, account not created.', '../Views/index.php');
-    //}
-    return null;
+    return $user;
 }
 
 function init_session(User $user = null){
@@ -46,26 +52,19 @@ function init_session(User $user = null){
         $userRepo = $entityManager->getRepository(User::class);
         $user = $userRepo->findOneBy(["mail" => $_POST['mail']]);
         $password = hash("sha256", $_POST['password']);
-        if($user->getPassword() == $password) {
+        if ($user->getPassword() == $password) {
             $_SESSION['firstName'] = $user->getFirstname();
             $_SESSION['lastName'] = $user->getLastname();
             $_SESSION['mail'] = $_POST['mail'];
+            $_SESSION['role'] = $user->getRole();
             //$message = "Connection done !";
         }
-        //else{
-            //$message = "Incorrect password...";
-        //}
+        //TODO : front-sided password verification  / else : "Incorrect password..."
     }
-    /*
-    else {
-        $message = "Member unknown...";
-    }
-    dialogBox_and_redirect($message, '../Views/index.php');
-    */
 }
 
 function destroy_session(){
     session_unset();
     session_destroy();
-    //dialogBox_and_redirect("Logged out !", '../Views/index.php');
+    //TODO : redirection to ?
 }

@@ -2,7 +2,7 @@
 namespace Library\Controllers;
 
 use Library\Models\Author;
-require_once __DIR__.'/utils.php'; //entitymanager used in utils
+require_once __DIR__ . '/entity.php'; //entitymanager used in entity
 
 function create_author($name, $books = null){
     global $entityManager;
@@ -13,9 +13,5 @@ function create_author($name, $books = null){
         $author->setName($name);
         $author->addBooks($books);
     }
-    //else{
-        //dialogBox_and_redirect('Error, name already taken, author not created.');
-        //header("Refresh:0");
-    //}
     return $author;
 }

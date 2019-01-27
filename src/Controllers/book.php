@@ -2,7 +2,7 @@
 namespace Library\Controllers;
 
 use Library\Models\Book;
-require_once __DIR__.'/utils.php'; //entitymanager used in utils
+require_once __DIR__ . '/entity.php'; //entitymanager used in entity
 
 function create_book($category, $publisher, $title, $release_date, $pdf, $authors = null){
     global $entityManager;
@@ -16,11 +16,6 @@ function create_book($category, $publisher, $title, $release_date, $pdf, $author
         $book->setReleaseDate($release_date);
         $book->setPdf($pdf);
         $book->addAuthors($authors);
-        return $book;
     }
-    //else{
-        //dialogBox_and_redirect('Error, title already taken, book not created.');
-        //header("Refresh:0");
-    //}
     return $book;
 }

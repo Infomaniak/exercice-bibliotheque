@@ -7,7 +7,9 @@ require_once __DIR__.'/create-users.php';
 require_once __DIR__.'/create-authors.php';
 require_once __DIR__.'/create-books.php';
 require_once __DIR__.'/create-physical_books.php';
-require_once __DIR__.'/../src/Controllers/utils.php';
+require_once __DIR__ . '/../src/Controllers/entity.php';
+
+use Library\Controllers\DatabaseException;
 use function Library\Controllers\store_entities;
 
 $categories = create_categories(); // 3 categories
@@ -19,4 +21,8 @@ $physical_books = create_physical_books($books); // 10 physical_book by book (10
 
 
 $entities = array_merge($categories,$publishers,$users,$authors,$books,$physical_books);
-store_entities($entities);
+try {
+    store_entities($entities);
+} catch (DatabaseException $e) {
+    echo $e;
+}
