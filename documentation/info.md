@@ -10,9 +10,6 @@ As I'm learning Doctrine by doing this project, I've created some code snippets 
 ### The src folder
 This is the principal one. It includes my MVC structure. Entities are in ```Models/```, human-machine interfaces are in ```Views\``` and all the code in-between is in ```Controllers\```.
 
-### The vendor folder
-This folder contains Doctrine library.
-
 ### The db_filling_scripts
 This folder contains scripts to test our database with fake data, to run them use ```filler.php```. This script orchestrates all the scripts to make consistant objects and save them to the database.
 
@@ -69,6 +66,8 @@ Think to create a data folder if you go for SQLite.
 For more information, go [here](https://www.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/configuration.html).
 
 You don't have to change cli-config.php.
+
+Do ```composer install``` to install all libraries.
 
 Do ```vendor/bin/doctrine``` to make sure Doctrine works.
 
