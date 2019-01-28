@@ -57,6 +57,11 @@ class Book
      */
     protected $physical_books;
 
+    /**
+     * @ORM\Column(type="string", length=2000)
+     */
+    protected $synopsis;
+
     public function __construct()
     {
         $this->authors = new ArrayCollection();
@@ -162,6 +167,16 @@ class Book
             $this->physical_books->add($physical_book);
             $physical_book->setBook($this);
         }
+    }
+
+    public function getSynopsis()
+    {
+        return $this->synopsis;
+    }
+
+    public function setSynopsis($synopsis)
+    {
+        $this->synopsis = $synopsis;
     }
 
     public function __toString()
