@@ -6,24 +6,6 @@ use Library\Models\User;
 require_once __DIR__ . '/entity.php'; //entitymanager used in entity
 require_once __DIR__.'/user.php';
 
-if(isset($_POST['submit'])){
-    if($_POST['submit'] == "register" && check_submitted_data()){
-        $user = create_account();
-        if($user != null) {
-            init_session($user);
-        }
-        else{
-            echo "Couldn't create your account, maybe your mail is already taken ? Please try again.";
-        }
-    }
-    elseif ($_POST['submit'] == "sign_in"){
-        init_session();
-    }
-    elseif ($_POST['submit'] == "log_out") {
-        destroy_session();
-    }
-}
-
 function check_submitted_data(){
     return isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['mail']) && isset($_POST['password']);
 }

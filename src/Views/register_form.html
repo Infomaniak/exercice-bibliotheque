@@ -1,14 +1,21 @@
-<form method="post" action="../Controllers/session.php" class="register" >
-    <label for="firstName"></label>
-    <input type="text" name="firstName" id="firstName" placeholder="Your first name" required/>
-    <label for="lastName"></label>
-    <input type="text" name="lastName" id="lastName" placeholder="Your last name" required/>
-    <label for="mail"></label>
-    <input type="email" name="mail" id="mail" placeholder="Your mail" required/>
-    <label for="password"></label>
-    <input type="password" name="password" id="password" placeholder="Your password" required/>
-    <label for="password"></label>
-    <input type="password" name="passwordConf" id="passwordConf" placeholder="Confirm your password" required/>
+<div id="modalReg" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" action="" class="register" >
+                <label for="firstName"></label>
+                <input type="text" name="firstName" id="firstName" placeholder="Your first name" required/>
+                <label for="lastName"></label>
+                <input type="text" name="lastName" id="lastName" placeholder="Your last name" required/>
+                <label for="mail"></label>
+                <input type="email" name="mail" id="mail" placeholder="Your mail" required/>
+                <label for="password"></label>
+                <input type="password" name="password" id="password" placeholder="Your password" required/>
+                <label for="password"></label>
+                <input type="password" name="passwordConf" id="passwordConf" placeholder="Confirm your password" required/>
 
-    <button type="submit" name="submit" value="register">Register</button>
-</form>
+                <button type="submit" name="submit" value="register">Register</button>
+            </form>
+        </div>
+    </div>
+</div>
+
