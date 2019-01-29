@@ -62,6 +62,11 @@ class Book
      */
     protected $synopsis;
 
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $cover;
+
     public function __construct()
     {
         $this->authors = new ArrayCollection();
@@ -177,6 +182,16 @@ class Book
     public function setSynopsis($synopsis)
     {
         $this->synopsis = $synopsis;
+    }
+
+    public function getCover()
+    {
+        return $this->cover;
+    }
+
+    public function setCover($cover)
+    {
+        $this->cover = $cover;
     }
 
     public function __toString()
