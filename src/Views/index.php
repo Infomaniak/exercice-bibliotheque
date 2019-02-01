@@ -1,7 +1,8 @@
 <?php
-require __DIR__.'/header.php';
-include "register_form.html";
-include "sign_in_form.html";
+require_once __DIR__.'/header.php';
+require_once __DIR__.'/../Controllers/book.php';
+use function Library\Controllers\random_books;
+require_once __DIR__.'/display_book.php';
 ?>
 
 <!------------------------------ NAVBAR ------------------------------>
@@ -32,20 +33,20 @@ include "sign_in_form.html";
         </form>
         <ul class="navbar-nav">
 
-        <?php if(isset($_SESSION["mail"])) : ?>
+        <?php if(isset($_SESSION["user"])) : ?>
 
             <li class="nav-item">
                 <a class="nav-link" href="#">My Account</a>
             </li>
 
-            <?php if($_SESSION["role"] == "librarian" || $_SESSION["role"] == "admin") : ?>
+            <?php if($_SESSION["user"]->getRole() == "librarian" || $_SESSION["user"]->getRole() == "admin") : ?>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Librarian corner</a>
                 </li>
             <?php endif; ?>
 
             <form method="post" action="" class="form-inline" >
-                <button class="btn btn-outline-success navbar-btn" type="submit" name="submit" value="log_out">Log out</button>
+                <button class="btn btn-outline-danger navbar-btn" type="submit" name="submit" value="log_out">Log out</button>
             </form>
 
         <?php else: ?>
@@ -54,7 +55,7 @@ include "sign_in_form.html";
                 <a class="nav-link" data-toggle="modal" href="#modalReg">Register</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="test" data-toggle="modal" href="#modalSignIn">Sign in</a>
+                <a class="nav-link" data-toggle="modal" href="#modalSignIn">Sign in</a>
             </li>
 
         <?php endif; ?>
@@ -66,6 +67,21 @@ include "sign_in_form.html";
 <!------------------------------ END NAVBAR ------------------------------>
 
 
+<h1 class="display-1 d-flex justify-content-center text-success">Welcome to YouLib <?php if(isset($_SESSION["user"])) echo $_SESSION["user"]->getFirstName()?> !</h1>
+<h3 class="display-4 d-flex justify-content-end text-secondary">You don't know what to read ?</h3>
+<h2 class="display-3 d-flex justify-content-start text-primary">Here is a selection of 3 random books !</h2>
+
+<?php
+$books = random_books(3);
+foreach ($books as $book) {
+    if(isset($_SESSION['token'])) {
+        display_book($book, $_SESSION['token']);
+    }
+    else{
+        display_book($book);
+    }
+}
+?>
 
 <?php
 require __DIR__.'/footer.php';

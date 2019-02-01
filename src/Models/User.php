@@ -126,11 +126,21 @@ class User
         return $this->physical_books;
     }
 
-    public function addPhysicalBooks(Physical_Book $physical_book)
+    public function addPhysicalBook(Physical_Book $physical_book)
     {
         if(!$this->physical_books->contains($physical_book)) {
             $this->physical_books->add($physical_book);
-            $physical_book->setBook($this);
+            $physical_book->setHolder($this);
+            $physical_book->setBorrowDate(new \DateTime("now"));
+        }
+    }
+
+    public function removePhysicalBook(Physical_Book $physical_book)
+    {
+        if($this->physical_books->contains($physical_book)) {
+            $this->physical_books->removeElement($physical_book);
+            $physical_book->setHolder(null);
+            $physical_book->setBorrowDate(null);
         }
     }
 

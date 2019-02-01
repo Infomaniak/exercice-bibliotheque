@@ -166,7 +166,7 @@ class Book
         return $this->physical_books;
     }
 
-    public function addPhysicalBooks(Physical_Book $physical_book)
+    public function addPhysicalBook(Physical_Book $physical_book)
     {
         if(!$this->physical_books->contains($physical_book)) {
             $this->physical_books->add($physical_book);

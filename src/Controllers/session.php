@@ -21,13 +21,8 @@ function create_account(){
 }
 
 function init_session(User $user = null){
-    $message = null;
     if($user != null){ // if we come from the register_form
-        $_SESSION['firstName'] = $user->getFirstname();
-        $_SESSION['lastName'] = $user->getLastname();
-        $_SESSION['mail'] = $user->getMail();
-        $_SESSION['role'] = $user->getRole();
-        //$message = "Connection done !";
+        $_SESSION['user'] = $user;
     }
     elseif(isset($_POST['mail']) && isset($_POST['password'])) { // if we come from the sign_in_form
         global $entityManager;
@@ -35,11 +30,7 @@ function init_session(User $user = null){
         $user = $userRepo->findOneBy(["mail" => $_POST['mail']]);
         $password = hash("sha256", $_POST['password']);
         if ($user->getPassword() == $password) {
-            $_SESSION['firstName'] = $user->getFirstname();
-            $_SESSION['lastName'] = $user->getLastname();
-            $_SESSION['mail'] = $_POST['mail'];
-            $_SESSION['role'] = $user->getRole();
-            //$message = "Connection done !";
+            $_SESSION['user'] = $user;
         }
         //TODO : front-sided password verification  / else : "Incorrect password..."
     }
@@ -48,5 +39,4 @@ function init_session(User $user = null){
 function destroy_session(){
     session_unset();
     session_destroy();
-    //TODO : redirection to ?
 }

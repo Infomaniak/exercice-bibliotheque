@@ -1,7 +1,6 @@
 <?php
 
 namespace Library\Models;
-
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -61,6 +60,12 @@ class Physical_Book
 
     public function setHolder($holder)
     {
+        if($this->holder != null){
+            $this->holder->removePhysicalBook($this);
+        }
+        else {
+            $holder->addPhysicalBook($this);
+        }
         $this->holder = $holder;
     }
 
@@ -69,15 +74,15 @@ class Physical_Book
         return $this->borrow_date;
     }
 
-    public function setBorrowDate(\DateTime $borrow_date)
+    public function setBorrowDate($borrow_date)
     {
         $this->borrow_date = $borrow_date;
     }
 
     public function __toString()
     {
-        $format = "Physical_Book (id: %s, title: %s, category: %s, release_date: %s)\n";
-        return sprintf($format, $this->id, $this->book, $this->holder, $this->borrow_date);
+        $format = "Physical_Book (id: %s, book: %s, holder: %s)\n";
+        return sprintf($format, $this->id, $this->book, $this->holder);
     }
 
 }

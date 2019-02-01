@@ -19,8 +19,7 @@ $publishers = create_publishers(); // 3 publishers
 $users = create_users(); // 20 users
 $authors = create_authors(); // 10 authors
 $books = create_books($categories,$publishers,$authors); // 10 books
-$physical_books = create_physical_books($books); // 10 physical_book by book (100)
-
+$physical_books = create_physical_books($books,$users); // 10 physical_book by book (100)
 
 $entities = array_merge($categories,$publishers,$users,$authors,$books,$physical_books);
 try {

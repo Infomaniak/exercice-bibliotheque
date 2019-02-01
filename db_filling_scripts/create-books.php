@@ -13,7 +13,7 @@ function create_books ($categories, $publishers, $authors){
         $synopsis = $title.$lorem;
         $date =   \DateTime::createFromFormat("d/m/Y","25/04/2015");
         $books[$index] = create_book($categories[$index%3], $publishers[$index%3],$title, $date,
-            "http://www.test.com/test123.pdf", $synopsis,"http://www.test.com/cover_picture.jpg",$authors);
+            "https://goo.gl/9gbpHN", $synopsis,"https://i.imgur.com/fskccnV.png",$authors);
     }
     return $books;
 }
