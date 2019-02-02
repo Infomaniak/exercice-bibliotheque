@@ -20,6 +20,7 @@ function display_book($book,$token=null){
                 echo $authors[count($authors)-1]->getName();
                 ?></p>
             <p>Published by <?= $book->getPublisher()->getName(); ?></p>
+            <p>Release date : <?= $book->getReleaseDate()->format('F d, Y');?></p>
             <h5>Synopsis :</h5>
             <p><?= $book->getSynopsis(); ?></p>
             <p><?php

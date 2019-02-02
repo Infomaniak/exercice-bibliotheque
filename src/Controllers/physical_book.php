@@ -106,3 +106,28 @@ function get_borrow_date($user,$bookId){
     $pbook = $pbookRepo->findOneBy(["book" => $bookId, "holder" => $user]);
     return $pbook->getBorrowDate();
 }
+
+/**
+ * @param $bookId
+ * @throws \Doctrine\ORM\ORMException
+ * @throws \Doctrine\ORM\OptimisticLockException
+ */
+function remove_physical_book($bookId){
+    global $entityManager;
+    $pbookRepo = $entityManager->getRepository(Physical_Book::class);
+    $pbook = $pbookRepo->findOneBy(["book" => $bookId, "holder" => null]);
+    $entityManager->remove($pbook);
+    $entityManager->flush();
+}
+
+function get_taken_phys_books($physical_books){
+    $count = 0;
+    $taken_pbooks = array();
+    foreach($physical_books as $physB){
+        if($physB->getHolder() != null) {
+            $taken_pbooks[$count] = $physB;
+            $count++;
+        }
+    }
+    return $taken_pbooks;
+}

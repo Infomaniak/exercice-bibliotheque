@@ -1,11 +1,8 @@
 <?php
 require_once __DIR__.'/header.php';
-$currentPage = "my_account";
+$currentPage = "browse_books";
 require_once __DIR__.'/navbar.php';
 ?>
-
-
-
 
 
 

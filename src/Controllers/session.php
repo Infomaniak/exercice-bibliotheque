@@ -32,7 +32,6 @@ function init_session(User $user = null){
         if ($user->getPassword() == $password) {
             $_SESSION['user'] = $user;
         }
-        //TODO : front-sided password verification  / else : "Incorrect password..."
     }
 }
 
