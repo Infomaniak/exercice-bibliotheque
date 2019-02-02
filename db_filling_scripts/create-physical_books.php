@@ -17,5 +17,11 @@ function create_physical_books ($books,$users){
     $users[0]->addPhysicalBook($physical_books[11]);
     $users[0]->addPhysicalBook($physical_books[21]);
     $users[0]->addPhysicalBook($physical_books[31]);
+    $users[0]->addPhysicalBook($physical_books[41]);
+    $users[0]->addPhysicalBook($physical_books[51]);
+    $users[1]->addPhysicalBook($physical_books[1]);
+    $users[1]->addPhysicalBook($physical_books[33]);
+    $users[2]->addPhysicalBook($physical_books[12]);
+    $users[2]->addPhysicalBook($physical_books[32]);
     return $physical_books;
 }

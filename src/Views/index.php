@@ -15,10 +15,10 @@ require_once __DIR__.'/display_book.php';
 $books = random_books(3);
 foreach ($books as $book) {
     if(isset($_SESSION['token'])) {
-        display_book($book, $_SESSION['token']);
+        display_book($book, $currentPage, $_SESSION['token']);
     }
     else{
-        display_book($book);
+        display_book($book,$currentPage);
     }
 }
 ?>

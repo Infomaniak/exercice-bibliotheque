@@ -95,6 +95,7 @@ if(isset($_SESSION['user']) && $_SESSION['user']->getRole() == "librarian") :
         </tbody>
         <tfoot>
         <tr>
+            <th>Book title</th>
             <th>First name</th>
             <th>Last name</th>
             <th>Mail</th>
