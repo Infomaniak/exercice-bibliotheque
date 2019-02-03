@@ -28,23 +28,23 @@ if(isset($_SESSION['user']) && $_SESSION['user']->getRole() == "librarian") :
     <tbody>
     <?php foreach(get_all_books() as $book): ?>
     <tr>
-        <td><?= $book->getTitle();?></td>
-        <td><?= $book->getCategory()->getName();?></td>
+        <td><?= htmlspecialchars($book->getTitle());?></td>
+        <td><?= htmlspecialchars($book->getCategory()->getName());?></td>
         <td><?php
             $authors = $book->getAuthors();
             for($i=0 ; $i<count($authors) ; $i++) {
                 if($i != count($authors)-1) {
-                    echo $authors[$i]->getName() . ", ";
+                    echo htmlspecialchars($authors[$i]->getName()) . ", ";
                 }
                 else{
-                    echo $authors[$i]->getName();
+                    echo htmlspecialchars($authors[$i]->getName());
                 }
             }?></td>
-        <td><?= $book->getPublisher()->getName();?></td>
+        <td><?= htmlspecialchars($book->getPublisher()->getName());?></td>
         <td><?= $book->getReleaseDate()->format('Y-m-d');?></td>
-        <td width="35%"><?= $book->getSynopsis();?></td>
-        <td><?= $book->getCover();?></td>
-        <td><?= $book->getPdf();?></td>
+        <td width="35%"><?= htmlspecialchars($book->getSynopsis());?></td>
+        <td><?= htmlspecialchars($book->getCover());?></td>
+        <td><?= htmlspecialchars($book->getPdf());?></td>
         <td><?= count($book->getPhysicalBooks());?></td>
         <td>
             <i class="fa fa-pencil-square" aria-hidden="true" style="cursor: pointer"></i>
@@ -84,10 +84,10 @@ if(isset($_SESSION['user']) && $_SESSION['user']->getRole() == "librarian") :
                 foreach(get_taken_phys_books($book->getPhysicalBooks()) as $pBook):
                     $holder = $pBook->getHolder()?>
             <tr>
-                <td><?= $book->getTitle();?></td>
-                <td><?= $holder->getFirstname();?></td>
-                <td><?= $holder->getLastname();?></td>
-                <td><?= $holder->getMail();?></td>
+                <td><?= htmlspecialchars($book->getTitle());?></td>
+                <td><?= htmlspecialchars($holder->getFirstname());?></td>
+                <td><?= htmlspecialchars($holder->getLastname());?></td>
+                <td><?= htmlspecialchars($holder->getMail());?></td>
                 <td><?= $pBook->getBorrowDate()->format('Y-m-d');?></td>
             </tr>
         <?php endforeach;

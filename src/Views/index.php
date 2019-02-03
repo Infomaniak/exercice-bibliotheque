@@ -7,7 +7,7 @@ use function Library\Controllers\random_books;
 require_once __DIR__.'/display_book.php';
 ?>
 
-<h1 class="display-1 d-flex justify-content-center text-success">Welcome to YouLib <?php if(isset($_SESSION["user"])) echo $_SESSION["user"]->getFirstName()?> !</h1>
+<h1 class="display-1 d-flex justify-content-center text-success">Welcome to YouLib <?php if(isset($_SESSION["user"])) echo htmlspecialchars($_SESSION["user"]->getFirstName())?> !</h1>
 <h3 class="display-4 d-flex justify-content-end text-secondary">You don't know what to read ?</h3>
 <h2 class="display-3 d-flex justify-content-start text-primary">Here is a selection of 3 random books !</h2>
 

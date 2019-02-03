@@ -18,7 +18,7 @@
             </li>
         </ul>
         <form class="form-inline col">
-            <input class="form-control mr-sm-1 col" type="search" placeholder="Search a book" aria-label="Search">
+            <input class="form-control mr-sm-1 col" type="search" placeholder="Search a book (not implemented yet)" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
         <ul class="navbar-nav">
@@ -48,12 +48,7 @@
                     <a class="nav-link" data-toggle="modal" href="#modalSignIn">Sign in</a>
                 </li>
 
-            <?php endif;
-            //TODO : For the register form, do the double-password-check
-            //TODO : For the sign in form, give a feedback if wrong password
-            //TODO : In both forms : never trust user input !
-            //TODO : In both forms : design
-            ?>
+            <?php endif;?>
         </ul>
     </div>
 </nav>

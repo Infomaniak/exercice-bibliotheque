@@ -9,9 +9,9 @@ if(isset($_SESSION['user'])):
     <h1 class="display-3 d-flex justify-content-center text-success">This page is yours !</h1>
     <hr>
     <h2 class="display-4">See your informations</h2>
-    <p><span class="font-weight-bold">Your first name :</span> <?=  $user->getFirstname();?></p>
-    <p><span class="font-weight-bold">Your last name :</span> <?=  $user->getLastname();?></p>
-    <p><span class="font-weight-bold">Your mail address :</span> <?=  $user->getMail();?></p>
+    <p><span class="font-weight-bold">Your first name :</span> <?=  htmlspecialchars($user->getFirstname());?></p>
+    <p><span class="font-weight-bold">Your last name :</span> <?=  htmlspecialchars($user->getLastname());?></p>
+    <p><span class="font-weight-bold">Your mail address :</span> <?=  htmlspecialchars($user->getMail());?></p>
     <p><span class="font-weight-bold">Your role :</span> <?=  $user->getRole();?></p>
     <hr>
     <h2 class="display-4">Browse the books you borrowed</h2>

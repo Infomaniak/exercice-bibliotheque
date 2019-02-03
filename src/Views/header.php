@@ -4,6 +4,7 @@ include_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__.'/../Controllers/session.php';
 use function Library\Controllers\{check_submitted_data,create_account,init_session,destroy_session};
 if(isset($_POST['submit'])){
+    $confirmPassword = true;
     if($_POST['submit'] == "register" && check_submitted_data()){
         $user = create_account();
         if($user != null) {
@@ -14,13 +15,18 @@ if(isset($_POST['submit'])){
         }
     }
     elseif ($_POST['submit'] == "sign_in"){
-        init_session();
+        $confirmPassword = init_session();
     }
     elseif ($_POST['submit'] == "log_out") {
         destroy_session();
     }
-    header("Location: " . $_SERVER['REQUEST_URI']);
-    exit();
+    if($confirmPassword){
+        header("Location: " . $_SERVER['REQUEST_URI']);
+        exit();
+    }
+    else{
+        echo "<p class='text-danger'>Wrong password, try again.</p>";
+    }
 }
 if(!isset($_SESSION["user"])) {
     include "register_form.html";

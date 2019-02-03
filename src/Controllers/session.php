@@ -31,6 +31,10 @@ function init_session(User $user = null){
         $password = hash("sha256", $_POST['password']);
         if ($user->getPassword() == $password) {
             $_SESSION['user'] = $user;
+            return true;
+        }
+        else{
+            return false;
         }
     }
 }
