@@ -22,7 +22,7 @@ foreach ($books as $book) {
     }
 }
 ?>
-
+<h4 class="d-flex justify-content-center">Don't forget you can retrieve your borrowed books in&nbsp<a href="my_account.php"> my account</a>&nbsp!</h4>
 <?php
 require_once __DIR__.'/footer.php';
 ?>

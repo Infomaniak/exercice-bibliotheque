@@ -112,12 +112,18 @@ function get_borrow_date($user,$bookId){
  * @throws \Doctrine\ORM\ORMException
  * @throws \Doctrine\ORM\OptimisticLockException
  */
-function remove_physical_book($bookId){
+function remove_physical_book($bookId)
+{
     global $entityManager;
     $pbookRepo = $entityManager->getRepository(Physical_Book::class);
     $pbook = $pbookRepo->findOneBy(["book" => $bookId, "holder" => null]);
-    $entityManager->remove($pbook);
-    $entityManager->flush();
+    if ($pbook != null) {
+        $entityManager->remove($pbook);
+        $entityManager->flush();
+    }
+    else{
+        echo "Couldn't delete the physical book because there are no not-borrowed ones.";
+    }
 }
 
 function get_taken_phys_books($physical_books){

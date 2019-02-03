@@ -15,3 +15,9 @@ function create_author($name, $books = null){
     }
     return $author;
 }
+
+function get_all_authors(){
+    global $entityManager;
+    $repo = $entityManager->getRepository(Author::class);
+    return $repo->findAll();
+}

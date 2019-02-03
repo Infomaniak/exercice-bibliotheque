@@ -15,3 +15,9 @@ function create_publisher($name, $books = null){
     }
     return $publisher;
 }
+
+function get_all_publishers(){
+    global $entityManager;
+    $repo = $entityManager->getRepository(Publisher::class);
+    return $repo->findAll();
+}

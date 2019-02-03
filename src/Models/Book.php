@@ -137,6 +137,15 @@ class Book
         return $this->authors;
     }
 
+    public function setAuthors($authors){
+        $this->authors = $authors;
+        if($authors != null) {
+            foreach ($authors as $author) {
+                $author->addBook($this);
+            }
+        }
+    }
+
     public function addAuthor(Author $author)
     {
         if(!$this->authors->contains($author)) {

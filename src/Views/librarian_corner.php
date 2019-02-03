@@ -106,7 +106,7 @@ if(isset($_SESSION['user']) && $_SESSION['user']->getRole() == "librarian") :
 
 <?php
 else :
-    echo "<p>You must be connected as a librarian to access this page</p><a href='index.php'>Return to index.php</a>";
+    echo "<p>You must be connected as a librarian to access to this page.</p><a href='index.php'>Return to index.php</a>";
 endif;
 require_once __DIR__.'/footer.php'
 ?>

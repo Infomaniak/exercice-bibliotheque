@@ -15,3 +15,9 @@ function create_category($name, $books = null){
     }
     return $category;
 }
+
+function get_all_categories(){
+    global $entityManager;
+    $repo = $entityManager->getRepository(Category::class);
+    return $repo->findAll();
+}

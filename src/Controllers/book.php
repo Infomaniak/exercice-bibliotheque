@@ -1,6 +1,7 @@
 <?php
 namespace Library\Controllers;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use function Library\db_filling_scripts\create_authors;
 use Library\Models\Book;
 
@@ -107,11 +108,15 @@ function update_book($title, $category, $authors, $publisher, $release_date, $sy
         $authors[$i] = create_author($authors[$i]);
         $entityManager->persist($authors[$i]);
     }
+    $authors = new ArrayCollection($authors);
     $release_date = date_create_from_format('Y-m-d',$release_date);
 
     if($book != null) { //if book is in database, update :
         $category->addBook($book);
-        $book->addAuthors($authors);
+        foreach($book->getAuthors() as $author){
+            $author->removeBook($book);
+        }
+        $book->setAuthors($authors);
         $publisher->addBook($book);
         $book->setReleaseDate($release_date);
         $book->setSynopsis($synopsis);
@@ -154,5 +159,27 @@ function remove_book($title){
             $entityManager->remove($book);
             $entityManager->flush();
         }
+    }
+}
+
+function get_by($by, $what){
+    global $entityManager;
+    $repo = $entityManager->getRepository("Library\Models\\$by");
+    $entity = $repo->findOneBy(['name' => $what]);
+    if($by != "author") {
+        $bookRepo = $entityManager->getRepository(Book::class);
+        return $bookRepo->findBy([$by => $entity]);
+    }
+    else{ // I don't think it's the best way to do so but I haven't found a better solution yet...
+        $books = get_all_books();
+        $validBooks = array();
+        $count = 0;
+        foreach($books as $book){
+            if($book->getAuthors()->contains($entity)){
+                $validBooks[$count] = $book;
+                $count++;
+            }
+        }
+        return $validBooks;
     }
 }
