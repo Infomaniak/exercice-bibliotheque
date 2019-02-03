@@ -29,14 +29,16 @@ function display_book($book,$nextPage,$token=null){
             echo $nFreePhysBooks ."/". count($physical_books) . " book(s) remaining";
             if(isset($_SESSION["user"]) && is_user_holder($physical_books, $_SESSION["user"])) :
                 echo ". Borrowed since ".get_borrow_date($_SESSION["user"],$book->getId())->format('F d, Y').".";?></p>
-                <form method="post" action="../Controllers/physical_book.php?returnB=true&nextP=<?=$nextPage;?>" class="form-inline" >
+                <form method="post" action="../Controllers/physical_book.php?returnB=true" class="form-inline" >
                     <input type="hidden" name="token" value="<?= $token; ?>" />
+                    <input type="hidden" name="nextP" value="<?=$nextPage;?>" />
                     <button class="btn btn-outline-success" type="submit" name="return_book" value="<?= $book->getId() ;?>">Return book</button>
                 </form>
                 <a class="btn btn-outline-success" href="<?= $book->getPdf(); ?>" target="_blank">See PDF</a>
             <?php elseif(isset($_SESSION["user"]) && $nFreePhysBooks > 0): ?>
-                <form method="post" action="../Controllers/physical_book.php?borrowB=true&nextP=<?=$nextPage;?>" class="form-inline" >
+                <form method="post" action="../Controllers/physical_book.php?borrowB=true" class="form-inline" >
                     <input type="hidden" name="token" value="<?= $token; ?>" />
+                    <input type="hidden" name="nextP" value="<?=$nextPage;?>" />
                     <button class="btn btn-outline-success" type="submit" name="borrow_book" value="<?= $book->getId() ;?>">Borrow book</button>
                 </form>
             <?php elseif(!isset($_SESSION["user"])): ?>

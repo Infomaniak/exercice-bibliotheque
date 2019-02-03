@@ -45,15 +45,14 @@ function is_user_holder($physical_books, $user){
 
 
 
-if(isset($_GET['returnB']) && $_GET['returnB'] == true && isset($_GET['nextP'])) {
+if(isset($_GET['returnB']) && $_GET['returnB'] == true && isset($_POST['nextP'])) {
     if (isset($_POST['token'])) {
         session_start();
         if ($_POST['token'] == $_SESSION['token']) {
-
             return_physical_book($_SESSION['user'],$_POST['return_book']);
         }
     }
-    header("Location: " . "../Views/".$_GET['nextP'].".php");
+    header("Location: " . "../Views/".$_POST['nextP']);
     exit();
 }
 
@@ -73,14 +72,14 @@ function return_physical_book(User $user,$bookId){
 }
 
 
-if(isset($_GET['borrowB']) && $_GET['borrowB'] == true && isset($_GET['nextP'])) {
+if(isset($_GET['borrowB']) && $_GET['borrowB'] == true && isset($_POST['nextP'])) {
     if (isset($_POST['token'])) {
         session_start();
         if ($_POST['token'] == $_SESSION['token']) {
             borrow_physical_book($_SESSION['user'],$_POST['borrow_book']);
         }
     }
-    header("Location: " . "../Views/".$_GET['nextP'].".php");
+    header("Location: " . "../Views/".$_POST['nextP']);
     exit();
 }
 

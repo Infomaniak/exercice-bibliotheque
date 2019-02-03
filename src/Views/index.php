@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__.'/header.php';
-$currentPage = "index";
+$currentPage = "index.php";
 require_once __DIR__.'/navbar.php';
 require_once __DIR__.'/../Controllers/book.php';
 use function Library\Controllers\random_books;

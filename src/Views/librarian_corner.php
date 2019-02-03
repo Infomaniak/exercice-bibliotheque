@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__.'/header.php';
-$currentPage = "librarian_corner";
+$currentPage = "librarian_corner.php";
 require_once __DIR__.'/navbar.php';
 require_once __DIR__.'/../Controllers/book.php';
 use function Library\Controllers\{get_all_books,get_taken_phys_books};

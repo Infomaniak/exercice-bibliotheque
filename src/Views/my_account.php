@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__.'/header.php';
-$currentPage = "my_account";
+$currentPage = "my_account.php";
 require_once __DIR__.'/navbar.php';
 require_once __DIR__.'/display_book.php';
 if(isset($_SESSION['user'])):
