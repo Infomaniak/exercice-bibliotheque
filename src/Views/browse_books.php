@@ -49,7 +49,12 @@ if(isset($_GET['by'])){
     elseif($_GET['by'] == "author" || $_GET['by'] == "category" || $_GET['by'] == "publisher") {
         $currentPage = "browse_books.php?by=" . $_GET['by'] . "&what=" . $_GET['what'];
         foreach (get_by($_GET['by'], $_GET['what']) as $book) {
-            display_book($book,$currentPage,$_SESSION['token']);
+            if(isset($_SESSION['token'])){
+                display_book($book,$currentPage,$_SESSION['token']);
+            }
+            else{
+                display_book($book,$currentPage);
+            }
         }
     }
 }
