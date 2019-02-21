@@ -19,7 +19,7 @@ if(isset($_GET['by'])){
         $currentPage = "browse_books.php?by=" . $_GET['by'];
         echo '<ul class="list-group list-group-flush">';
         switch ($_GET['by']) {
-            case "category":
+            case "Category":
                 $categories = get_all_categories();
                 foreach ($categories as $category) {
                     echo    '<li class="list-group-item text-center w-100">'.
@@ -27,7 +27,7 @@ if(isset($_GET['by'])){
                             '</li>';
                 }
                 break;
-            case "publisher":
+            case "Publisher":
                 $publishers = get_all_publishers();
                 foreach ($publishers as $publisher) {
                     echo    '<li class="list-group-item text-center w-100">'.
@@ -35,7 +35,7 @@ if(isset($_GET['by'])){
                             '</li>';
                 }
                 break;
-            case "author":
+            case "Author":
                 $authors = get_all_authors();
                 foreach ($authors as $author) {
                     echo    '<li class="list-group-item text-center w-100">'.
@@ -46,7 +46,7 @@ if(isset($_GET['by'])){
         }
         echo "</ul>";
     }
-    elseif($_GET['by'] == "author" || $_GET['by'] == "category" || $_GET['by'] == "publisher") {
+    elseif($_GET['by'] == "Author" || $_GET['by'] == "Category" || $_GET['by'] == "Publisher") {
         $currentPage = "browse_books.php?by=" . $_GET['by'] . "&what=" . $_GET['what'];
         foreach (get_by($_GET['by'], $_GET['what']) as $book) {
             if(isset($_SESSION['token'])){

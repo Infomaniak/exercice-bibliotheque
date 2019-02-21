@@ -7,7 +7,7 @@ function display_book($book,$nextPage,$token=null){
 ?>
     <div class="d-inline-flex border">
         <div class="col-sm-3">
-         <img src="<?= $book->getCover(); ?>" alt="Book's cover picture" width="375" height="550" class="m-1">
+         <img src="<?= $book->getCover(); ?>" alt="Book's cover picture" class="img-fluid">
         </div>
         <div class="col-sm-9">
             <h4><?= $book->getTitle(); ?></h4>

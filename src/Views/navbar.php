@@ -11,9 +11,9 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle <?php if ($currentPage=="browse_books") echo "active"; ?>" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Browse books</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="browse_books.php?by=category">By category</a>
-                    <a class="dropdown-item" href="browse_books.php?by=publisher">By publisher</a>
-                    <a class="dropdown-item" href="browse_books.php?by=author">By author</a>
+                    <a class="dropdown-item" href="browse_books.php?by=Category">By category</a>
+                    <a class="dropdown-item" href="browse_books.php?by=Publisher">By publisher</a>
+                    <a class="dropdown-item" href="browse_books.php?by=Author">By author</a>
                 </div>
             </li>
         </ul>

@@ -5,6 +5,9 @@ I've chosen to develop my website with PHP 7 using [Doctrine](https://www.doctri
 For the front-end, I used Bootstrap 4 and a bit of jQuery.
 
 
+[Click here to access to the online version of this project](http://cedric-caballol.fr.nf)
+
+
 ## Summary
 
 * [Project architecture](#Project-architecture)

@@ -166,9 +166,9 @@ function get_by($by, $what){
     global $entityManager;
     $repo = $entityManager->getRepository("Library\Models\\$by");
     $entity = $repo->findOneBy(['name' => $what]);
-    if($by != "author") {
+    if($by != "Author") {
         $bookRepo = $entityManager->getRepository(Book::class);
-        return $bookRepo->findBy([$by => $entity]);
+        return $bookRepo->findBy([strtolower($by) => $entity]);
     }
     else{ // I don't think it's the best way to do so but I haven't found a better solution yet...
         $books = get_all_books();
