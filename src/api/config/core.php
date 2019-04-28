@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
  
 // home page url
-$home_url="https://maximetassy.fr/api/";
+$home_url="http://localhost/api/";
 
 $serverKey = "e049f217f5314d6e9e14c09b63ad9558";
 $nbf = time();

@@ -3,7 +3,7 @@ import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
 
-const ApiUrl = "https://maximetassy.fr/api/books";
+const ApiUrl = "http://localhost/api/books";
 
 @Injectable({
   providedIn: 'root'

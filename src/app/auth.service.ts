@@ -12,7 +12,7 @@ export class User {
   type: number;
   token: string;
 }
-const ApiUrl = "https://maximetassy.fr/api/users";
+const ApiUrl = "http://localhost/api/users";
 
 @Injectable({
   providedIn: 'root'
