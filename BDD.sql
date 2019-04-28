@@ -3,7 +3,7 @@ CREATE DATABASE IF NOT EXISTS `infomaniak_books`;
 use infomaniak_books;
 
 CREATE USER infomaniakApp IDENTIFIED BY 'Qi32Y3nJ4g6akYR';
-GRANT SELECT, INSERT, UPDATE, DELETE ON infomaniak_books.* to b60w0_infomaniak;
+GRANT SELECT, INSERT, UPDATE, DELETE ON infomaniak_books.* to infomaniakApp;
 
 DROP TABLE IF EXISTS Books;
 CREATE TABLE Books(
