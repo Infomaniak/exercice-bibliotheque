@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS `infomaniak_books`;
 
 use infomaniak_books;
 
-CREATE USER infomaniakApp IDENTIFIED BY 'Qi32Y3nJ4g6akYR';
+CREATE USER infomaniakApp IDENTIFIED BY 'password';
 GRANT SELECT, INSERT, UPDATE, DELETE ON infomaniak_books.* to infomaniakApp;
 
 DROP TABLE IF EXISTS Books;

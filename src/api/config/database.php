@@ -4,7 +4,7 @@ class Database{
     private $host = "localhost";
     private $db_name = "infomaniak_books";
     private $username = "infomaniakApp";
-    private $password = "Qi32Y3nJ4g6akYR";
+    private $password = "password";
     public $conn;
  
     
