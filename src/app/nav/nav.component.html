@@ -1,0 +1,13 @@
+<header>
+  <div class="navbar">
+    <a routerLink="/" class="logo">{{ appTitle }}</a>
+    <nav>
+      <ul>
+        <li><a routerLink="/">Accueil</a></li>
+        <li *ngIf="this.currentUser"><a routerLink="/account">Compte</a></li>
+        <li *ngIf="this.currentUser"><a routerLink="/borrow">Emprunts</a></li>
+        <li *ngIf="this.currentUser"><a (click)="logout()">Deconnexion</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,23 @@
+<div *ngIf="this.livre">
+<h1>{{ livre.titre }}</h1>
+<br>
+
+<ul>
+  <li><strong>Auteur:</strong> {{ livre.auteur }}</li>
+  <li><strong>Genre:</strong> {{ livre.genre }}</li>
+  <li><strong>Type:</strong> {{ livre.type }}</li>
+  <li><strong>Date de sortie:</strong> {{ livre.date }}</li>
+  <li><strong>Disponibilité:</strong> {{ (livre.dispo == 1) ? 'Disponible' : 'Indisponible' }}</li>
+  <li *ngIf="this.type == 1 && livre.user != null"><strong>Emprunteur:</strong> {{ livre.user }}</li>
+</ul>
+<br>
+<div style="float: left" class="button-row" *ngIf="(livre.dispo == 1)">
+    <a mat-raised-button color="primary" (click)="openBorrowDialog();" matTooltip="Emprunter" matTooltipPosition="above">Emprunter livre</a>
+</div>
+<div *ngIf="this.type == 1" style="float: right" class="button-row">
+    <a mat-raised-button color="primary" (click)="openModifyDialog();" matTooltip="Modifier" matTooltipPosition="above">Modifier livre</a>
+</div>
+<div *ngIf="this.type == 1" style="float: right; margin-right: 5px;" class="button-row">
+    <a mat-raised-button color="primary" (click)="openDeleteDialog();" matTooltip="Supprimer" matTooltipPosition="above">Supprimer livre</a>
+</div>
+</div>

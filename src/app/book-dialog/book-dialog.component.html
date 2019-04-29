@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.info.titre" placeholder="Titre">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.info.auteur" placeholder="Auteur">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.info.genre" placeholder="Genre">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.info.type" placeholder="Type">
+  </mat-form-field>
+  <div>
+    <label>
+      Date :
+      <input [placeholder]="this.data.info['date']"
+             [(ngModel)]="this.data.info['date']"
+             [owlDateTimeTrigger]="dt" [owlDateTime]="dt">
+      <owl-date-time [pickerType]="'calendar'" #dt></owl-date-time>
+    </label>
+  </div>
+  <br>
+  <mat-form-field>
+    <mat-select matInput [(ngModel)]="data.info.dispo" placeholder="Disponibilité">
+      <mat-option value="TRUE">Disponible</mat-option>
+      <mat-option value="FALSE">Indisponible</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Annuler</button>
+  <button mat-button [mat-dialog-close]="data.info" cdkFocusInitial>{{data.button}}</button>
+</div>
