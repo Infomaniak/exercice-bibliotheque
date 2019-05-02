@@ -1,0 +1,28 @@
+.some-value {
+  color: #BBBCBC;
+  text-decoration: none;
+  font-size: 3vh;
+  transition: 0.5s;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: solid;
+  border-width: 1px;
+  border-color: #373a47;
+  background-color: #373a47;
+  border-radius: 20px;
+}
+
+.some-value:hover {
+  color: white;
+  transition: 0.5s;
+  border: solid;
+  border-radius: 40px;
+  border-width: 1px;
+  border-color: white;
+}
+
+.menu-title {
+  padding-bottom: 40px;
+}

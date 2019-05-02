@@ -1,27 +1,35 @@
-# Library exercise
+# Marc Dubois Library Exercice Infomaniak
 
-![Infomaniak Library](bookcase.jpg)
+Library Exercice Infomaniak!
 
-## Subject
-Create a library : A web site or application for managing and borrow books.
- * A user can subscribe to the website, see the available books and borrow books.
- * A librarian can add / edit / delete / see all the books. When a book has been borrowed, he will need to know which user has the book.
+### Project recovery
 
-## Technologies
-You can use all technologies, languages and frameworks you want. The only condition is that your application is accessible online or on a mobile device.
+Clone the git repository
+```
+git clone https://github.com/marcdubois71450/Library-Exercise
+```
+Move in the right folder
+```
+cd Library-Exercise
+```
+Install the necessary packages
+```
+npm install
+```
+The project is ready to use
 
-## Additional informations for students
-You can realize backend only, in that case please provide us a documented API so that we can test your routes easily.
 
-You can realize frontend only, with fake data. 
+### Development
+Start the project locally
+```
+npm start
+```
+The developement server is ready on port 3000
 
-Don't forget that Infomaniak provides free web hosting for students if you need it.
 
-## Assessment
-We will :
- * test your application : your application must work, even if it is incomplete
- * read your code : create a pull request on this project
- * read your development thinking : please add a short info.md file to your project, which summarize your development choices. You can write this document in french or english.
-
-### Do you have question ?
-Please create an `issue` on this project.
+### Build
+Build the project in production mode
+```
+npm run build
+```
+The build is ready in /build

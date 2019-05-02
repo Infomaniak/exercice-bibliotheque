@@ -1,0 +1,20 @@
+.account {
+  height: 100vh;
+  text-align: center;
+}
+
+.form-account {
+  padding-top: 8%;
+}
+
+.input-form {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #A6A6A6;
+  border-radius: 15px;
+  width: 300px;
+  height: 30px;
+  margin-top: 10px;
+  text-indent: 2em;
+  cursor: pointer;
+}

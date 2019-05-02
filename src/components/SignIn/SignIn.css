@@ -1,0 +1,66 @@
+.signin {
+  height: 100vh;
+  text-align: center;
+}
+
+.form-sigin {
+  padding-top: 14%;
+}
+
+.form-title {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.input-form {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #A6A6A6;
+  border-radius: 15px;
+  width: 300px;
+  height: 30px;
+  margin-top: 10px;
+  text-indent: 2em;
+  cursor: pointer;
+}
+
+.input-submit {
+  border-radius: 15px;
+  width: 200px;
+  height: 30px;
+  margin-top: 10px;
+  background: #373a47;
+  color: white;
+  cursor: pointer;
+}
+
+.input-submit-google {
+  border-radius: 15px;
+  width: 200px;
+  height: 30px;
+  margin-top: 5px;
+  background: #cc181e;
+  color: white;
+  cursor: pointer;
+}
+
+.input-submit-fb {
+  border-radius: 15px;
+  width: 200px;
+  height: 30px;
+  margin-top: 5px;
+  background: #4267B2;
+  color: white;
+  cursor: pointer;
+}
+
+.input-submit-twitter {
+  border-radius: 15px;
+  width: 200px;
+  height: 30px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background: #1b95e0;
+  color: white;
+  cursor: pointer;
+}

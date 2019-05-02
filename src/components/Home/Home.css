@@ -1,0 +1,37 @@
+.home {
+  min-height: 100vh;
+  text-align: center;
+}
+
+.home-center {
+  padding-top: 5%;
+}
+
+.home-title {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.delete {
+  cursor: pointer;
+  background: #373a47;
+  width: 100px;
+  text-align: center;
+  color: white;
+}
+
+.delete:hover {
+  background: white;
+  color: black;
+}
+
+.input-edit {
+  width: 100%;
+  padding: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin: 0px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
