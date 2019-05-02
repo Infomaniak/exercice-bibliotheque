@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h2>Tous les livres</h2>
+    <div class="list-group">
+      <div *ngFor="let book of books; let i = index">
+        <ng-template [ngIf]="book">
+          <button class="list-group-item" (click)="onViewBook(i)">
+            <h3 class="list-group-item-heading">
+              {{ book.title }}
+              <button *ngIf="!book.subscriber" class="btn btn-default pull-right" (click)="onFollowBook(i)">
+                <span class="glyphicon">Emprunter</span>
+              </button>
+              <button *ngIf="book.subscriber == uid && book.subscriber" class="btn btn-default pull-right" (click)="onUnFollowBook(i)">
+                <span class="glyphicon">Rendre</span>
+              </button>
+              <button *ngIf="admin" class="btn btn-default pull-right" (click)="onDeleteBook(book)">
+                <span class="glyphicon glyphicon-minus"></span>
+              </button>
+            </h3>
+            <p class="list-group-item-text">{{ book.author }}</p>
+            <p *ngIf="admin && book.email" class="list-group-item-text">Livre emprunter par : {{ book.email }}</p>
+          </button>
+        </ng-template>
+      </div>
+    </div>
+    <button *ngIf="admin" class="btn btn-primary" (click)="onNewBook()">Nouveau livre</button>
+  </div>
+</div>
