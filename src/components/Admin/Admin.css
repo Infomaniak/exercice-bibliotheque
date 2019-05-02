@@ -1,0 +1,54 @@
+.bibliothecaire {
+  height: 100vh;
+  text-align: center;
+}
+
+.center-bibliothecaire {
+  padding-top: 5%;
+}
+
+.title-bibliothecaire {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.detail {
+  cursor: pointer;
+  background: #373a47;
+  width: 100px;
+  text-align: center;
+}
+
+.detail-text {
+  color: white;
+}
+
+.detail:hover .detail-text {
+  color: black;
+}
+
+.detail:hover {
+  background: white;
+  color: black;
+}
+
+table {
+  width: 750px;
+  margin: 50px auto;
+}
+
+tr:nth-of-type(odd) {
+  background: #eee;
+}
+
+th {
+  background: #373a47;
+  color: white;
+  font-weight: bold;
+}
+
+td, th {
+  padding: 10px;
+  text-align: left;
+  font-size: 18px;
+}
