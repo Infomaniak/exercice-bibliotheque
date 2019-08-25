@@ -8,27 +8,33 @@ Cette application a été réalisée dans le cadre d'un test technique proposé 
 
 L'application a été développée en HTML/CSS/PHP à l'aide des frameworks Bootstrap et Laravel et fonctionne à l'aide d'une base de données MySQL.
 
+## Accès en ligne
+
+L'application n'est pas encore hébergée en ligne.
+
 ## Fonctionnalités
 
-Un utilisateur non-inscrit peut :
-- Créer un compte ;
-- Voir les livres disponibles ;
-- Rechercher des livres par titre ou nom d'auteur.
+- Un utilisateur non-inscrit peut :
+	- Créer un compte (`Connexion`>`S'inscrire`);
+	- Voir les livres disponibles ;
+	- Rechercher des livres par titre ou nom d'auteur.
 
-Un utilisateur inscrit peut :
-- Voir les livres disponibles ;
-- Rechercher des livres par titre ou nom d'auteur ;
-- Emprunter un livre ;
-- Voir les livres qu'il a empruntés ;
-- Rendre un livre emprunté.
+- Un utilisateur inscrit peut :
+	- Voir les livres disponibles ;
+	- Rechercher des livres par titre ou nom d'auteur ;
+	- Voir un livre en détail (en cliquant sur celui-ci) ;
+	- Emprunter un livre (`Emprunter` sur la page d'un livre);
+	- Voir les livres qu'il a empruntés (`Mes livres` dans le menu);
+	- Rendre un livre emprunté (`Rendre` sur la page d'un livre emprunté).
 
-Un libraire peut :
-- Voir les livres disponibles ;
-- Voir les livres tous les livres empruntés ;
-- Voir l'utilisateur ayant emprunté un livre ;
-- Ajouter un nouveau livre ;
-- Modifier un livre existant ;
-- Supprimer un livre.
+- Un libraire peut :
+	- Voir les livres disponibles ;
+	- Voir les livres tous les livres empruntés ;
+	- Voir un livre en détail (en cliquant sur celui-ci) ;
+	- Voir l'utilisateur ayant emprunté un livre (sur la page de celui-ci) ;
+	- Ajouter un nouveau livre (`Ajouter un livre` dans le menu) ;
+	- Modifier un livre existant (`Modifier` sur la page d'un livre) ;
+	- Supprimer un livre (`Supprimer` sur la page d'édition d'un livre).
 
 ### Compte prédéfini
 
