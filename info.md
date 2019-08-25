@@ -17,7 +17,7 @@ L'application n'est pas encore hébergée en ligne.
 - Un utilisateur non-inscrit peut :
 	- Créer un compte (`Connexion`>`S'inscrire`);
 	- Voir les livres disponibles ;
-	- Rechercher des livres par titre ou nom d'auteur.
+	- Rechercher des livres par titre ou nom d'auteur ;
 	- Voir un livre en détail (en cliquant sur celui-ci) ;
 	- Retourner à l'accueil (en cliquant sur le logo `Library`).
 
