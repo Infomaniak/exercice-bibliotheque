@@ -1,0 +1,289 @@
+body, html {
+	height: 100%;
+	font-family: Futura-PT;
+	font-weight: 300;
+	font-style: normal;
+	font-size: 20px;
+	margin: 0;
+	padding: 0;
+	
+	border-radius: 15px;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none !important;
+	outline-width: 0 !important;
+}
+
+p {
+	margin: 5px 0 2px 0;
+}
+
+button {
+	font-family: Futura-PT;
+	font-weight: 500;
+	font-size: 20px;
+	background-color: white;
+	border-radius: 5px;
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
+	border: none;
+	color: black;
+	margin: 20px 0 0 0;
+	width: 100%;
+	padding: 5px 10px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	transition: 0.3s;
+	opacity: 0.7;
+}
+
+button:hover {
+	box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5);
+	opacity: 1;
+}
+
+button:active {
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+	opacity: 0.5;
+}
+
+#bg {
+	position: fixed;
+	top: 0;
+	
+	background-image: url("../img/indexBg.jpg");
+
+	filter: blur(8px);
+	-webkit-filter: blur(8px);
+
+	height: 100%; 
+	width: 100%;
+
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+/* Position text in the middle of the page/image */
+.panel {
+	background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+	color: white;
+	
+	border-radius: 10px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 2;
+	padding: 20px;
+	
+	text-align: center;
+	transition: 0.8s;
+	filter: none;
+}
+
+input[type=radio] + div {
+	opacity: 0;
+	z-index: -1;
+}
+
+input[type=radio]:checked + div {
+	opacity: 1;
+	z-index: 2;
+}
+
+input[type=text], input[type=password] {
+	width: 100%;
+	border: none;
+	line-height: 25px;
+	border-radius: 5px;
+	text-align: center;
+	padding: 0;
+	font-family: Futura-PT;
+	font-weight: 300;
+	font-style: normal;
+	font-size: 18px;
+}
+
+#signup {
+	margin-top: 2px;
+}
+
+h6 {
+	margin-bottom: 2px;
+}
+
+#header {
+	position: fixed;
+	top: 0;
+	height: 70px;
+	background-color: white;
+	z-index: 10;
+	padding: 0;
+	
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+#menu {
+	position: absolute;
+	background: none;
+	width: fit-content;
+	font-size: 25px;
+	font-weight: bold;
+	padding: 0;
+	margin: 0;
+	line-height: 70px;
+	right: 25px;
+	box-shadow: none !important;
+}
+
+#topmenu.opened {
+	display: block;
+}
+
+.simple {
+	position: absolute;
+	background: none;
+	font-size: 18px;
+	font-weight: bold;
+	margin: 0;
+	line-height: 18px;
+	box-shadow: none !important;
+	width: 200px;
+	padding-top: 40px;
+}
+
+#main {
+	position: relative;
+	background-color: white;
+	margin-top: 80px;
+	
+	padding: 2em;
+	overflow: auto;
+}
+
+#logo {
+	position: absolute;
+	font-style: italic;
+	line-height: 70px;
+	font-size: 35px;
+	top: 0;
+	left: 2%;
+	font-weight: bold;
+}
+
+#books {
+	height: auto;
+	overflow: auto;
+}
+
+.book {
+	display: inline-block;
+	height: 300px;
+	/*border: 1px solid #DDD;*/
+	text-align: center;
+	border-spacing: 0;
+	padding: 10px;
+	margin: 0 -4px;
+	opacity: 0.7;
+	transition: 0.5s;
+}
+
+.book:hover {
+	transform: translateY(-5px);
+	opacity: 1;
+}
+
+.book:hover > .image {
+	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+	transform: scale(1.03);
+}
+
+.image {
+	width: 150px;
+	height: 190px;
+	border: 1px solid #DDD;
+	background-color: #DDD;
+	margin: auto;
+	transition: 0.8s;
+}
+
+.title {
+	font-weight: bold;
+	margin: 10px 0 0 0;
+	font-size: 22px;
+}
+
+.author {
+	font-size: 13px;
+	font-style: italic;
+}
+
+#searchBtn {
+	box-shadow: none !important;
+	margin: 0;
+	padding: 0 10px;
+}
+
+#search {
+	text-align: left;
+	outline: thin;
+}
+
+#pseudo {
+	padding-right: 20px;
+	font-size: 15px;
+	font-weight: 200;
+}
+
+#nav {
+	text-align: center;
+	height: 70px;
+}
+
+#nav > button:first-child {
+	left: 5%;
+}
+
+#nav > button:last-child {
+	right: 5%;
+}
+
+#searchbar {
+	text-align: left;
+	padding-left: 15px;
+	border-bottom: 1px solid #888;
+}
+
+#topmenu {
+	position: relative;
+	display: none;
+	transition: 0.3s;
+	background-color: white;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+	top: 70px;
+	padding: 0;
+	width: 100%;
+}
+
+
+
+.menuBtn {
+	background-color: white;
+	font-size: 15px;
+	margin: 0;
+	padding: 0;
+	box-shadow: none !important;
+	width: 100%;
+	height: 50px;
+	border-bottom: 1px solid #DDD;
+}
+
+.menuBtn:hover {
+	background-color: #DDD;
+}
