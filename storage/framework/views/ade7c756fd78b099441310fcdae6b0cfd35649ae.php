@@ -6,7 +6,7 @@
 <?php $__env->startSection('content'); ?>
 
 		<div id="main" class="col-md-12 col-lg-8 offset-lg-2">
-			<h6><?php echo e($book->author); ?></h6>
+			<h6 style="font-style: italic;"><?php echo e($book->author); ?></h6>
 			<h3><?php echo e($book->title); ?></h3>
 			<hr/>
 
@@ -24,7 +24,7 @@
 								<form method="POST" action="/books/<?php echo e($book->id); ?>">
 									<?php echo csrf_field(); ?>
 
-									<button type="submit" class="simple buttonLink">Reserver</button>
+									<button type="submit" class="simple buttonLink">Emprunter</button>
 								</form>
 							<?php elseif(Auth::user()->name == $book->borrower): ?>
 								<form method="POST" action="/books/<?php echo e($book->id); ?>">
@@ -46,7 +46,7 @@
 
 
 					<div class="col-sm-12 col-md-8">
-						<h5>Synopsis</h5>
+						<h5 style="font-style: italic; font-weight: bold;">Synopsis</h5>
 						<p><?php echo e($book->synopsis); ?></p>
 					</div>
 				</div>

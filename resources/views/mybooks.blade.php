@@ -39,13 +39,13 @@
 			
 			<div id="nav">
 				@if ($page > 0)
-					<a href='/{{ $previous }}' class="simple navBtn leftBtn"><i class="fa fa-chevron-left"></i>PRECEDENT</a>
+					<a href='/my-books/{{ $previous }}' class="simple navBtn leftBtn"><i class="fa fa-chevron-left"></i>PRECEDENT</a>
 				@endif
 
 				@if ($next != $page)
-					<a href='/{{ $next }}' class="simple navBtn rightBtn">SUIVANT<i class="fa fa-chevron-right"></i></a>
+					<a href='/my-books/{{ $next }}' class="simple navBtn rightBtn">SUIVANT<i class="fa fa-chevron-right"></i></a>
 				@endif
-			</div>
+			</div> 
 		</div>
 		
 	

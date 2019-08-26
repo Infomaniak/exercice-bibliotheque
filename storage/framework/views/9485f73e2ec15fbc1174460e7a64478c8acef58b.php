@@ -37,11 +37,11 @@
 			
 			<div id="nav">
 				<?php if($page > 0): ?>
-					<a href='/<?php echo e($previous); ?>' class="simple navBtn leftBtn"><i class="fa fa-chevron-left"></i>PRECEDENT</a>
+					<a href='/my-books/<?php echo e($previous); ?>' class="simple navBtn leftBtn"><i class="fa fa-chevron-left"></i>PRECEDENT</a>
 				<?php endif; ?>
 
 				<?php if($next != $page): ?>
-					<a href='/<?php echo e($next); ?>' class="simple navBtn rightBtn">SUIVANT<i class="fa fa-chevron-right"></i></a>
+					<a href='/my-books/<?php echo e($next); ?>' class="simple navBtn rightBtn">SUIVANT<i class="fa fa-chevron-right"></i></a>
 				<?php endif; ?>
 			</div>
 		</div>

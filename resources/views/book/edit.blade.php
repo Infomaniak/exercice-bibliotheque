@@ -41,7 +41,7 @@
 					<div class="row">
 						<div class="col-sm-12 col-md-4 col-lg-3">
 
-							       <input class="big-image" type="file" name="picture"  value='{{ $book->picture }}'/>
+							       <input class="big-image" style="background-color: #DDD;" type="file" name="picture"  value='{{ $book->picture }}'/>
 					
 							<hr/>
 						</div>
