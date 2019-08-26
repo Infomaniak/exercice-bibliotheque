@@ -10,7 +10,7 @@ L'application a été développée en HTML/CSS/PHP à l'aide des frameworks Boot
 
 ## Accès en ligne
 
-L'application n'est pas encore hébergée en ligne.
+L'application est disponible à l'adresse suivante : http://www.yohann-gentelet.fr.
 
 ## Fonctionnalités
 
