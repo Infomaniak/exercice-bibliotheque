@@ -24,8 +24,8 @@ class Author extends Model
         'full_name', 'profile_image',
     ];
 
-    protected $table = 'authors';
     public $timestamps = true;
+    protected $table = 'authors';
 
     public function books()
     {
