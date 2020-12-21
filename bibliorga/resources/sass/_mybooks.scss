@@ -1,0 +1,96 @@
+
+.per2Books {
+    display: table;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 30px auto;
+    padding: 0 30px 30px 30px;
+}
+.emprunts, .historique {
+    display: table-cell;
+    background: white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    h3 {
+        font-weight: lighter;
+        font-size: 130%;
+    }
+}
+.emprunts {
+    width: 60%;
+    b {
+        font-weight: bold;
+    }
+}
+.historique {
+    width: 40%;
+    background: transparent;
+    .bookElementPhoto {
+        height: 50px;
+    }
+    span {
+        padding: 0px 5px;
+        font-size: 80%;
+    }
+    .bookElement {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border-style: none;
+        overflow: visible;
+    }
+}
+.bookLink {
+    display: block;
+    padding: 10px;
+    color: black;
+    cursor: pointer;
+    transition: background .3s, box-shadow .3s;
+}
+.bookLink:hover{
+    background: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    color: black;
+    text-decoration: none;
+}
+.bookElement {
+    display: block;
+    width: 100%;
+    margin: 0 0 3px 0;
+    padding: 5px;
+    border-bottom:1px solid rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    span {
+        display: inline-block;
+        padding: 5px;
+        vertical-align: middle;
+        i {
+            display: block;
+            font-style: normal;
+            opacity: 0.7;
+        }
+    }
+    button {
+        float: right;
+        margin: 10px;
+    }
+}
+.bookElementPhoto {
+    display: inline-block;
+    height: 75px;
+}
+
+@include media-breakpoint-down(sm) {
+    .emprunts, .historique {
+        display: block;
+        width: 100%;
+        margin: 0 0 20px 0;
+    }
+    .bookElement button {
+        float: right;
+        margin: 3px;
+    }
+    .per2Books {
+        padding: 0 10px 10px 10px;
+    }
+}

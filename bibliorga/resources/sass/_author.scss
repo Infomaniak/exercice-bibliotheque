@@ -1,0 +1,47 @@
+//Authhor
+.author {
+    background: white;
+    margin: 100px auto 10px auto;
+    max-width: 900px;
+    width: 70%;
+    -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.authorPhoto {
+    display: inline-block;
+    margin: -50px 0 0 30px;
+    border-radius: 100px;
+    width: 100px;
+    border: 3px solid white;
+    -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.biography {
+    display: block;
+    font-size: 120%;
+    padding: 20px;
+}
+
+.authorName {
+    padding: 20px 20px 0 20px;
+    float: right;
+}
+.nameFeed {
+    display: block;
+    width: 75px;
+    font-size: 80%;
+    margin-left: -10px;
+    text-align: center;
+    overflow: hidden;
+}
+
+@include media-breakpoint-down(sm) {
+    .author {
+        margin: 70px auto 10px auto;
+        max-width: 900px;
+        width: 85%;
+        font-size: 90%;
+    }
+}

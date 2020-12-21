@@ -1,0 +1,195 @@
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Vidaloka');
+//font-family: 'Vidaloka', serif;
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700');
+//font-family: 'Source Sans Pro', sans-serif;
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+// Imports partials styles
+@import "reset";
+@import "footer";
+@import "header";
+@import "nav";
+@import "fonctions";
+@import "book";
+@import "author";
+@import "home";
+@import "mybooks";
+
+//RESET GLOBAL
+* {
+    font-family: 'Source Sans Pro', sans-serif;
+    box-sizing: border-box;
+    font-weight: 300;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 1rem;
+}
+
+// App global styles
+.bg-green {
+    background: $green;
+}
+
+.boldH3 {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.heading {
+    display: block;
+    padding: 100px 50px 130px 50px;
+}
+
+.citation {
+    font-family: 'Vidaloka', serif;
+    padding: 20px;
+    line-height: 50px;
+    margin: 0;
+    color: white;
+    font-size: 300%;
+    i {
+        font-family: 'Source Sans Pro', sans-serif;
+        display: block;
+        color: rgba(0, 0, 0, 0.5);
+        position: relative;
+        font-size: 35%;
+        font-style: normal;
+        margin: 15px 0 0 0;
+    }
+    i::before {
+        content: '';
+        width: 40px;
+        height: 2px;
+        background: rgba(0, 0, 0, 0.3);
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
+
+.firstSection {
+    display: block;
+    width: 70%;
+    margin: -100px auto 0 auto;
+    background: white;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    font-size: 130%;
+    max-width: 900px;
+    p {
+        padding: 0;
+    }
+}
+
+.linkButton {
+    color: white;
+    background: #24c88c;
+    padding: 5px 10px;
+    position: relative;
+    font-size: 110%;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition-property: opacity;
+    transition-duration: 0.5s;
+}
+
+.linkButton:hover {
+    text-decoration: none;
+    color: white;
+    opacity: 0.8;
+}
+
+//Livres
+.booksContainer {
+    padding: 30px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.per4container {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.per4 {
+    display: inline-block;
+    width: 24%;
+    padding: 10px;
+    vertical-align: top;
+}
+
+.book {
+    display: block;
+    color: black;
+    transition: transform;
+    transition-duration: 0.5s;
+    text-align: center;
+    img {
+        display: block;
+        width: 100%;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        transition-property: box-shadow;
+        transition-duration: 0.5s;
+    }
+    .auteur {
+        display: block;
+        font-style: normal;
+        font-weight: bold;
+        line-height: 10px;
+        opacity: 0.4;
+    }
+}
+
+.book:hover {
+    @include transform(scale(1.03));
+    color: black;
+    text-decoration: none;
+    img {
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .heading {
+        padding: 20px 20px 100px 20px;
+    }
+    .citation {
+        padding: 10px;
+        line-height: 30px;
+        font-size: 200%;
+    }
+    .firstSection {
+        width: 85%;
+        margin: -100px auto 0 auto;
+        padding: 10px;
+        font-size: 100%;
+    }
+    .linkButton {
+        font-size: 90%;
+    }
+    span.bookTitle {
+        font-size: 80%;
+        line-height: 13px;
+    }
+    .booksContainer {
+        padding: 30px 10px;
+    }
+    .per4 {
+        padding: 2px;
+    }
+    .citation i {
+        font-size: 45%;
+    }
+
+}
